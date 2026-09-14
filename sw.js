@@ -1,4 +1,4 @@
-const CACHE_NAME = 'slopro-public-shell-v11-standalone-startup';
+const CACHE_NAME = 'slopro-public-shell-v12-store-map-diagnostics';
 const FILES = ['./', './index.html', './styles.css', './config.js', './app.js', './manifest.webmanifest'];
 
 self.addEventListener('install', (event) => {

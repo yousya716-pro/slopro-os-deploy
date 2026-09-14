@@ -5,3 +5,13 @@
 
 
 .machine-cache-warning{margin:7px 0;padding:7px 9px;border:1px solid #826d37;border-radius:8px;background:rgba(104,84,34,.24);font-size:11px;line-height:1.45}.machine-cache-warning strong,.machine-cache-warning span{display:block}.decision-count{position:sticky;top:0;z-index:3;margin:6px 0 8px;padding:7px 9px;border-radius:8px;background:#1d3b2d;color:#bfe8cd;font-size:12px}.decision-section{margin:8px 0;border:1px solid #344038;border-radius:9px;overflow:hidden}.decision-section summary{display:flex;justify-content:space-between;gap:8px;padding:10px;background:#202824;font-weight:750;cursor:pointer}.decision-section summary span{color:#a7b0ab;font-size:12px}.decision-section .quick-table{margin:0}.decision-detail{display:block;margin-top:4px;color:#aebbb4;font-size:10px;line-height:1.4;font-weight:400}.quick-table th{width:64%}.quick-table td{width:36%;overflow-wrap:anywhere}
+
+.store-map-diagnostic {
+  display: block;
+  margin-top: 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 500;
+  line-height: 1.35;
+  opacity: 0.82;
+  overflow-wrap: anywhere;
+}
