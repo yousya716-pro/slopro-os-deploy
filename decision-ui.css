@@ -1,0 +1,12 @@
+/* Presentation only. No decision thresholds, data, authorization or visibility logic. */
+.quick-screen .decision{display:grid;gap:10px;min-width:0}
+.quick-screen .decision .count{position:sticky;top:0;z-index:3;margin:4px 0;padding:9px 11px;border:1px solid #38654b;border-radius:9px;background:#1d3b2d;color:#d1f2dc;font-size:13px;font-variant-numeric:tabular-nums}
+.quick-screen .decision .section{display:grid;gap:8px;min-width:0}
+.quick-screen .decision .section h2{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:6px 0 0;padding:8px 10px;border-bottom:1px solid #46544c;font-size:16px}
+.quick-screen .decision .section h2 span{flex:none;color:#b9c8bf;font-size:12px;font-variant-numeric:tabular-nums}
+.quick-screen .decision .candidate{min-width:0;padding:12px;border:1px solid #46544c;border-radius:11px;background:#1a231e;overflow-wrap:anywhere}
+.quick-screen .decision .candidate h3{margin:0 0 7px;font-size:16px;line-height:1.35}
+.quick-screen .decision .result{margin:0 0 8px;padding:9px 10px;border-left:3px solid #76b88c;border-radius:4px;background:#25372b;font-size:17px;font-weight:750;line-height:1.4;font-variant-numeric:tabular-nums}
+.quick-screen .decision .condition{margin:5px 0;padding:0;color:#d1dbd4;font-size:13px;line-height:1.5;white-space:normal}
+.quick-screen .decision .warning{margin:8px 0;padding:9px 10px;border:1px solid #997844;border-radius:8px;background:#382d1e;color:#ffdb9d;font-size:13px;line-height:1.5;overflow-wrap:anywhere}
+@media(max-width:390px){.quick-screen .decision .candidate{padding:10px}.quick-screen .decision .result{font-size:16px}.quick-screen .decision .condition{font-size:12px}}
