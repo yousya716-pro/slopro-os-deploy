@@ -21,7 +21,9 @@ jobs:
           css=Path("field-reference-rollout-v3.css").read_text()
           assert chr(92)+"n" not in html, "literal backslash-n found in index.html"
           assert '<link rel="stylesheet" href="./field-reference-rollout-v3.css">' in html
-          assert '<script src="./app-field-reference-v2.js"></script>' in html\n          assert '<script src="./field-target-ui-v1.js"></script>' in html\n          assert "'./field-target-ui-v1.js'" in sw
+          assert '<script src="./app-field-reference-v2.js"></script>' in html
+          assert '<script src="./field-target-ui-v1.js"></script>' in html
+          assert "'./field-target-ui-v1.js'" in sw
           assert 'field-reference-v5.js' not in html
           assert 'field-reference-v12.css' not in html
           assert 'field-carousel-v25.css' not in html
