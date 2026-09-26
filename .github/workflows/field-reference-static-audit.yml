@@ -11,28 +11,31 @@ jobs:
       - name: Validate production field research shell
         run: |
           set -euo pipefail
-          test -f field-reference-rollout-v1.css
+          test -f field-reference-rollout-v2.css
           test -f index.html
           test -f sw.js
           python3 - <<'PY'
           from pathlib import Path
           html=Path("index.html").read_text()
           sw=Path("sw.js").read_text()
-          css=Path("field-reference-rollout-v1.css").read_text()
+          css=Path("field-reference-rollout-v2.css").read_text()
           assert chr(92)+"n" not in html, "literal backslash-n found in index.html"
-          assert '<link rel="stylesheet" href="./field-reference-rollout-v1.css">' in html
+          assert '<link rel="stylesheet" href="./field-reference-rollout-v2.css">' in html
           assert '<script src="./app.js"></script>' in html
           assert 'field-reference-v5.js' not in html
           assert 'field-reference-v12.css' not in html
           assert 'field-carousel-v25.css' not in html
-          assert "'./field-reference-rollout-v1.css'" in sw
+          assert "'./field-reference-rollout-v2.css'" in sw
           assert "'./app.js'" in sw
-          assert "slopro-public-shell-v40-field-reference-rollout-private" in sw
+          assert "slopro-public-shell-v41-field-reference-rail" in sw
           assert "calc(66.6667% - 4px)" in css
           assert "scroll-snap-type:x mandatory" in css
           assert "scroll-snap-stop:normal" in css
           assert "touch-action:pan-x pan-y" in css
           assert ".fr-morning" in css and ".at-matrix" in css
+          assert ".fr-rail-machine" in css and ".field-machine-main" in css
+          app=Path("app.js").read_text()
+          assert "fr-rail-machine" in app and "pwa-field-reference-api" in app
           assert "スルー" not in css, "decision/source text must not be hardcoded in presentation CSS"
           print("FIELD_REFERENCE_STATIC_AUDIT_OK")
           PY
