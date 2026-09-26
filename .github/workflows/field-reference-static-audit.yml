@@ -30,6 +30,8 @@ jobs:
           assert "ghoul-cz-strip" in js and "ghoul-at-full" in js, "full-width case renderer missing"
           assert "atGrouped" in js and "atCompact" in js, "grouped AT renderer missing"
           assert "データ読込異常" in js, "empty-table fail-close missing"
+          assert "fr-drawer" in js and "bindDrawer" in js, "machine switcher drawer missing"
+          assert "fr-drawer-tab" in css and "flex-wrap:wrap" in css, "mobile drawer/wrap CSS missing"
           assert "grid-template-columns:1fr!important" in css, "mobile case stack guard missing"
           assert "overflow-x:hidden" in css, "horizontal overflow guard missing"
           print("FIELD_REFERENCE_STATIC_AUDIT_OK")
