@@ -22,14 +22,14 @@ jobs:
           assert chr(92)+"n" not in html, "literal backslash-n found in index.html"
           assert '<link rel="stylesheet" href="./field-reference-rollout-v4.css">' in html
           assert '<script src="./app-field-reference-v2.js"></script>' in html
-          assert '<script src="./field-target-ui-v2.js"></script>' in html
-          assert "'./field-target-ui-v2.js'" in sw
+          assert '<script src="./field-target-ui-v3.js"></script>' in html
+          assert "'./field-target-ui-v3.js'" in sw
           assert 'field-reference-v5.js' not in html
           assert 'field-reference-v12.css' not in html
           assert 'field-carousel-v25.css' not in html
           assert "'./field-reference-rollout-v4.css'" in sw
           assert "'./app-field-reference-v2.js'" in sw
-          assert "slopro-public-shell-v45-target-card" in sw
+          assert "slopro-public-shell-v46-semantic-cards" in sw
           assert "calc(66.6667% - 4px)" in css
           assert "scroll-snap-type:x mandatory" in css
           assert "scroll-snap-stop:normal" in css
