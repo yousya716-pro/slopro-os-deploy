@@ -32,3 +32,5 @@
 
 /* Morning conditions: compact per-through rows */
 .morning-mini{margin-top:4px}.morning-mini>div{padding:3px 1px;border-top:1px solid #344039;font-size:12px;font-weight:700;line-height:1.18;color:#fff}.morning-mini>div:first-child{border-top:0}@media(max-width:390px){.morning-mini>div{font-size:11.5px}}
+
+.ghoul-note{margin:-2px 6px 5px;text-align:right;font-size:10.5px;line-height:1.1;color:#ffd978;font-weight:700}@media(max-width:390px){.ghoul-note{font-size:10px}}
