@@ -312,3 +312,13 @@
   padding-left:1px!important;
   padding-right:1px!important;
 }
+
+
+/* Readability correction v12: narrower normal carousel after verified v7 asset cutover.
+   Normal carousel only; morning matrices remain untouched. */
+.ghoul-case-carousel>.ghoul-case{
+  flex:0 0 210px!important;
+  width:210px!important;
+  min-width:210px!important;
+  max-width:210px!important;
+}
