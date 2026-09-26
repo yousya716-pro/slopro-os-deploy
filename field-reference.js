@@ -13,7 +13,22 @@ function index(ms){shell('<section class="field-index-screen"><div class="field-
 function shortLabel(s){return String(s||'条件').replace(/^Tokyo Ghoul morning CZ ceiling through0$/,'0スルー').replace(/^朝一/,'').trim()}
 function compactPredicates(ps){const x=(ps||[]).filter(p=>p.field!=='morning_state');return x.map(p=>{const k=labels[p.field]??p.field,v=val(p.value);if(p.op==='eq')return k+' '+v;if(p.op==='gte')return k+' '+v+'～';if(p.op==='lte')return k+' ～'+v;return k+(ops[p.op]??p.op)+v}).join(' / ')}
 function genericTable(rows){if(!rows.length)return'';const items=rows.map(r=>({label:shortLabel(r.label),text:compactPredicates(r.predicates)})),max=Math.max(...items.map(x=>(x.label+x.text).length)),cols=max<=34?3:max<=68?2:1;return '<div class="fr-auto-grid fr-cols-'+cols+'">'+items.map(x=>'<section class="fr-rule-card"><h4>'+esc(x.label)+'</h4><div>'+esc(x.text)+'</div></section>').join('')+'</div>'}
-function ghoulTables(rows){if(!rows?.length)return'';const normal=rows.filter(r=>r.phase==='normal'),reset=rows.filter(r=>r.phase==='reset'),name=r=>r.strategy_type==='cz_interval'?'CZ間':r.strategy_type==='at_interval'?'AT間':r.strategy_type==='zone'?'ゾーン':r.strategy_type;const cards=(x,cls)=>'<div class="fr-grid '+cls+'">'+x.map(r=>'<section class="fr-rule-card"><h4>'+esc(name(r))+'</h4><div>'+esc(r.display_summary)+'</div></section>').join('')+'</div>';return (normal.length?'<h3 class="fr-title">通常</h3>'+cards(normal,'fr-grid-normal'):'')+(reset.length?'<h3 class="fr-title">朝一</h3>'+cards(reset,'fr-grid-reset'):'')}
+function ghoulTables(rows){
+ const get=(phase,type)=>rows.find(r=>r.phase===phase&&r.strategy_type===type)?.display_summary||'';
+ const strip=s=>String(s).split('\n').filter(x=>x&&!/^(▼|50貸50交換|０?0?スルー$)/.test(x)&&!/^駆け抜け/.test(x)&&!/^朝一/.test(x)).join('\n');
+ const normal=rows.filter(r=>r.phase==='normal'), reset=rows.filter(r=>r.phase==='reset');
+ const groups=[
+  ['駆け抜け',normal.find(r=>r.rule_id===1),normal.find(r=>r.rule_id===2)],
+  ['前回AT 200–1000枚',normal.find(r=>r.rule_id===5),normal.find(r=>r.rule_id===6)],
+  ['前回AT 1000枚以上',normal.find(r=>r.rule_id===9),normal.find(r=>r.rule_id===10)]
+ ];
+ const n='<h3 class="fr-title">通常</h3><div class="ghoul-case-grid">'+groups.map(g=>'<section class="ghoul-case"><h4>'+g[0]+'</h4><div class="ghoul-split"><div><b>CZ間</b><p>'+esc(strip(g[1]?.display_summary))+'</p></div><div><b>AT間</b><p>'+esc(strip(g[2]?.display_summary))+'</p></div></div></section>').join('')+'</div>';
+ const cz=get('reset','cz_interval').replace(/^朝一\s*/,'');
+ const zone=get('reset','zone').replace(/^朝一ゾーン：?/,'');
+ const at=get('reset','at_interval').replace(/^朝一AT：?/,'');
+ const a='<h3 class="fr-title">朝一</h3><div class="ghoul-morning-grid"><section><b>CZ</b><p>'+esc(cz)+'</p></section><section><b>ゾーン</b><p>'+esc(zone)+'</p></section><section><b>AT</b><p>'+esc(at)+'</p></section></div>';
+ return n+a;
+}
 function machine(ms,i){const m=ms.find(x=>x.machine_index===i);if(!m)return index(ms);let body;if(m.status==='LIVE_CHECK_REQUIRED')body='<div class="field-badge wait">LIVE確認待ち</div><p class="field-wait">最新Live確認前のため条件を推測表示しません。</p>';else if(m.status!=='SOURCE_FIXED_SUBSET')body='<div class="field-badge wait">SOURCE確認待ち</div><p class="field-wait">条件を推測表示しません。</p>';else{const rows=(m.profiles?.eq??[]),morning=rows.filter(x=>(x.predicates??[]).some(p=>p.field==='morning_state'&&p.value==='first')),normal=rows.filter(x=>!morning.includes(x));body='<div class="field-badge">等価・調査用</div>'+(m.legacy_rules?.length?ghoulTables(m.legacy_rules):(normal.length?'<h3 class="fr-title">通常</h3>'+genericTable(normal):'')+(morning.length?'<h3 class="fr-title">朝一</h3>'+genericTable(morning):''))}shell('<section class="field-machine-screen"><div class="field-head"><button id="fr-back">← 一覧</button><h2>'+esc(m.machine_name)+'</h2></div><div class="field-card">'+body+'</div></section>');document.querySelector('#fr-back').onclick=()=>index(ms)}
 async function open(){shell('<section class="panel"><p class="status">現場調査データを読み込み中…</p></section>');try{index(await load())}catch{shell('<section class="panel"><p class="error">現場調査データを安全に取得できません。条件は表示しません。</p><button id="fr-home">戻る</button></section>');document.querySelector('#fr-home').onclick=home}}
 function inject(){const p=document.querySelector('.home-panel');if(!p||document.querySelector('#open-field-reference-overlay'))return;const b=document.createElement('button');b.id='open-field-reference-overlay';b.className='store-entry field-reference-entry';b.innerHTML='<strong>現場調査</strong><span>34機種・高速確認</span>';b.onclick=open;p.appendChild(b)}
