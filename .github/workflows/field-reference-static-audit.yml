@@ -27,14 +27,14 @@ jobs:
           assert 'field-carousel-v25.css' not in html
           assert "'./field-reference-rollout-v2.css'" in sw
           assert "'./app.js'" in sw
-          assert "slopro-public-shell-v41-field-reference-rail" in sw
+          assert "slopro-public-shell-v42-field-reference-js" in sw
           assert "calc(66.6667% - 4px)" in css
           assert "scroll-snap-type:x mandatory" in css
           assert "scroll-snap-stop:normal" in css
           assert "touch-action:pan-x pan-y" in css
           assert ".fr-morning" in css and ".at-matrix" in css
           assert ".fr-rail-machine" in css and ".field-machine-main" in css
-          app=Path("app.js").read_text()
+          app=Path("app-field-reference-v2.js").read_text()
           assert "fr-rail-machine" in app and "pwa-field-reference-api" in app
           assert "スルー" not in css, "decision/source text must not be hardcoded in presentation CSS"
           print("FIELD_REFERENCE_STATIC_AUDIT_OK")
