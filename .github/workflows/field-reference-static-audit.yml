@@ -10,17 +10,17 @@ jobs:
       - uses: actions/checkout@v4
       - name: Validate production field research shell
         run: |
-          node --check field-reference-v4.js
+          node --check field-reference-v5.js
           python3 - <<'PY'
           from pathlib import Path
           html=Path("index.html").read_text()
           sw=Path("sw.js").read_text()
           assert chr(92)+"n" not in html, "literal backslash-n found in index.html"
-          assert '<script src="./field-reference-v4.js?v=' in html
+          assert '<script src="./field-reference-v5.js?v=' in html
           assert '<link rel="stylesheet" href="./field-reference-v11.css' in html
-          assert "'./field-reference-v4.js'" in sw
+          assert "'./field-reference-v5.js'" in sw
           assert "'./field-reference-v11.css'" in sw
-          js=Path("field-reference-v4.js").read_text()
+          js=Path("field-reference-v5.js").read_text()
           css=Path("field-reference-v11.css").read_text()
           assert "display_summary||''" in js, "undefined-safe field text guard missing"
           assert "phase==='normal'" in js, "normal phase parser missing"
@@ -37,7 +37,7 @@ jobs:
           assert "overflow-x:hidden" in css, "horizontal overflow guard missing"
           assert "flex:0 0 60%!important" in css and "width:60%!important" in css and "max-width:60%!important" in css, "60 percent two-screen carousel contract missing"
           assert "scroll-snap-type:x mandatory!important" in css and "scroll-snap-stop:normal!important" in css and "padding-right:40%!important" in css and "touch-action:pan-x pan-y!important" in css, "aligned native carousel contract missing"
-          assert "Gesture v18: native iOS scrolling only" in js and "scrollBy(" not in js and "addEventListener('touchend'" not in js, "native-only gesture v18 missing"
+          assert "Gesture v18: native iOS scrolling only" in js and "Carousel guard v20" in js and "card.offsetLeft-c.offsetLeft" in js and "scrollBy(" not in js and "addEventListener('touchend'" not in js, "guarded native carousel v20 missing"
           assert "morning-tables" in js and "morning-block" in js, "morning table renderer missing"
           assert "250以内" in js and "250以上" in js and "480G〜" in js, "explicit morning matrix missing"
           assert "原文が「以内／以上」で重複" in js, "morning overlap warning missing"
