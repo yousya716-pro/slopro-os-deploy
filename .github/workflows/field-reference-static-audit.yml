@@ -32,6 +32,7 @@ jobs:
           assert "データ読込異常" in js, "empty-table fail-close missing"
           assert "fr-rail" in js and "bindDrawer" in js, "persistent machine rail missing"
           assert "fr-rail-machine" in css and "flex-wrap:wrap" in css, "persistent rail/wrap CSS missing"
+          assert "iPhone density pass" in css, "iPhone density profile missing"
           assert "grid-template-columns:1fr!important" in css, "mobile case stack guard missing"
           assert "overflow-x:hidden" in css, "horizontal overflow guard missing"
           print("FIELD_REFERENCE_STATIC_AUDIT_OK")
