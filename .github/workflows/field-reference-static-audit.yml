@@ -1,0 +1,24 @@
+name: Field Reference Static Audit
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate production field research shell
+        run: |
+          node --check field-reference.js
+          python3 - <<'PY'
+          from pathlib import Path
+          html=Path("index.html").read_text()
+          sw=Path("sw.js").read_text()
+          assert chr(92)+"n" not in html, "literal backslash-n found in index.html"
+          assert '<script src="./field-reference.js"></script>' in html
+          assert '<link rel="stylesheet" href="./field-reference.css">' in html
+          assert "'./field-reference.js'" in sw
+          assert "'./field-reference.css'" in sw
+          print("FIELD_REFERENCE_STATIC_AUDIT_OK")
+          PY
