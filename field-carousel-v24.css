@@ -1,0 +1,24 @@
+/* Tokyo Ghoul normal carousel v24 — three cards fit within two visible widths. */
+.ghoul-case-carousel{
+ display:flex!important;
+ gap:6px!important;
+ overflow-x:auto!important;
+ overflow-y:hidden!important;
+ padding:0 0 2px 0!important;
+ scroll-snap-type:x mandatory!important;
+ scroll-padding-left:0!important;
+ -webkit-overflow-scrolling:touch!important;
+ overscroll-behavior-x:contain!important;
+ touch-action:pan-x pan-y!important;
+}
+.ghoul-case-carousel>.ghoul-case{
+ flex:0 0 calc((200% - 12px)/3)!important;
+ width:calc((200% - 12px)/3)!important;
+ min-width:0!important;
+ max-width:none!important;
+ margin:0!important;
+ box-sizing:border-box!important;
+ scroll-snap-align:start!important;
+ scroll-snap-stop:normal!important;
+}
+.ghoul-case-carousel::after{content:none!important;display:none!important;}
