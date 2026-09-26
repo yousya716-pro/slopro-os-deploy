@@ -28,6 +28,7 @@ jobs:
           assert "前回AT枚数 200～1000枚" in js, "Tokyo Ghoul case parser missing"
           assert "ghoul-data" in js, "numeric decision table renderer missing"
           assert "ghoul-cz-strip" in js and "ghoul-at-full" in js, "full-width case renderer missing"
+          assert "atGrouped" in js and "atCompact" in js, "grouped AT renderer missing"
           assert "データ読込異常" in js, "empty-table fail-close missing"
           assert "grid-template-columns:1fr!important" in css, "mobile case stack guard missing"
           assert "overflow-x:hidden" in css, "horizontal overflow guard missing"
