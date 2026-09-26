@@ -31,9 +31,10 @@ function ghoulTables(rows){
  ];
  const normalHtml='<h3 class="fr-title">通常</h3>'+cases.map(([name,match])=>{const cz=pick('cz_interval',match),at=pick('at_interval',match),czd=czRows(cz),atd=atRows(at);if(!czd.length||!atd.length)return '<section class="ghoul-case ghoul-case-row fr-data-error"><h4>'+name+'</h4><p>データ読込異常</p></section>';return '<section class="ghoul-case ghoul-case-row"><h4>'+name+'</h4><div class="ghoul-cz-strip"><b class="cz-head">CZ間</b><div class="ghoul-cz-chips">'+czd.map(x=>'<span><small>'+esc(x[0])+'</small><strong>'+esc(x[1])+'</strong></span>').join('')+'</div></div><div class="ghoul-at-full"><b class="at-head">AT間</b>'+atCompact(atd)+'</div></section>'}).join('');
  const reset=kind=>text(resetRows.find(r=>r.strategy_type===kind)).replace(/^朝一(?:ゾーン：|AT：|\s*)/,'');
- const zone=reset('zone').replace(/｜/g,'\n');
- const rat=reset('at_interval').replace(/｜/g,'\n');
- const morning='<h3 class="fr-title">朝一</h3><div class="ghoul-morning-grid"><section><b>CZ</b><p>'+esc(reset('cz_interval'))+'</p></section><section><b>ゾーン</b><p>'+esc(zone)+'</p></section><section><b>AT</b><p>'+esc(rat)+'</p></section></div>';
+ const zone=reset('zone').split('｜').map(x=>x.trim()).filter(Boolean);
+ const rat=reset('at_interval').split('｜').map(x=>x.trim()).filter(Boolean);
+ const mini=xs=>'<div class="morning-mini">'+xs.map(x=>'<div>'+esc(x)+'</div>').join('')+'</div>';
+ const morning='<h3 class="fr-title">朝一</h3><div class="ghoul-morning-grid"><section><b>CZ</b><div class="morning-mini"><div>'+esc(reset('cz_interval'))+'</div></div></section><section><b>ゾーン</b>'+mini(zone)+'</section><section><b>AT</b>'+mini(rat)+'</section></div>';
  return normalHtml+morning;
 }
 function machine(ms,i){const m=ms.find(x=>x.machine_index===i);if(!m)return index(ms);let body;if(m.status==='LIVE_CHECK_REQUIRED')body='<div class="field-badge wait">LIVE確認待ち</div><p class="field-wait">最新Live確認前のため条件を推測表示しません。</p>';else if(m.status!=='SOURCE_FIXED_SUBSET')body='<div class="field-badge wait">SOURCE確認待ち</div><p class="field-wait">条件を推測表示しません。</p>';else{const rows=(m.profiles?.eq??[]),morning=rows.filter(x=>(x.predicates??[]).some(p=>p.field==='morning_state'&&p.value==='first')),normal=rows.filter(x=>!morning.includes(x));body='<div class="field-badge">等価・調査用</div>'+(m.legacy_rules?.length?ghoulTables(m.legacy_rules):(normal.length?'<h3 class="fr-title">通常</h3>'+genericTable(normal):'')+(morning.length?'<h3 class="fr-title">朝一</h3>'+genericTable(morning):''))}shell('<section class="field-machine-screen"><div class="field-head"><button id="fr-back">← 一覧</button><h2>'+esc(m.machine_name)+'</h2></div><div class="field-card">'+body+'</div></section>');document.querySelector('#fr-back').onclick=()=>index(ms)}
