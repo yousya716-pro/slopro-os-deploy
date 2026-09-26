@@ -16,8 +16,8 @@ jobs:
           html=Path("index.html").read_text()
           sw=Path("sw.js").read_text()
           assert chr(92)+"n" not in html, "literal backslash-n found in index.html"
-          assert '<script src="./field-reference.js"></script>' in html
-          assert '<link rel="stylesheet" href="./field-reference.css">' in html
+          assert '<script src="./field-reference.js?v=' in html
+          assert '<link rel="stylesheet" href="./field-reference.css?v=' in html
           assert "'./field-reference.js'" in sw
           assert "'./field-reference.css'" in sw
           js=Path("field-reference.js").read_text()
