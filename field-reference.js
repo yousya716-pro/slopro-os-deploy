@@ -18,7 +18,8 @@ function ghoulTables(rows){
  const text=r=>String(r?.display_summary||'');
  const pick=(kind,match)=>normal.find(r=>r.strategy_type===kind&&match(text(r)));
  const lines=r=>text(r).split('\n').map(x=>x.trim()).filter(Boolean);
- const czRows=r=>lines(r).filter(x=>/^0から差枚/.test(x)).map(x=>{const p=x.split('｜');return [p[0].replace(/^0から差枚\s*/,''),p[1]||''];});
+ const czBand=s=>String(s).replace(/\s+/g,' ').trim().replace(/^500～2200枚$/,'+500〜+2200').replace(/^-2000～500枚以下$/,'-2000〜+500').replace(/^-2000枚以下$/,'≤ -2000');
+ const czRows=r=>lines(r).filter(x=>/^0から差枚/.test(x)).map(x=>{const p=x.split('｜');return [czBand(p[0].replace(/^0から差枚\s*/,'')),p[1]||''];});
  const atRows=r=>{let s='';return lines(r).flatMap(x=>{if(/^\d+スルー/.test(x)){s=x.replace('以降','〜');return []}if(!x.startsWith('・'))return [];const m=x.match(/当該CZ間\s*([０0-9]+G)｜AT間(.+?)(?:（当該足さず）)?$/);return m?[[s,m[1].replace('０','0'),m[2].replace(/（当該足さず）/g,''),x.includes('当該足さず')]]:[]});};
  const table=(head,body,cls='')=>'<table class="ghoul-data '+cls+'"><thead><tr>'+head.map(x=>'<th>'+x+'</th>').join('')+'</tr></thead><tbody>'+body.map(r=>'<tr>'+r.map(x=>'<td>'+esc(x===true?'※':x===false?'':x)+'</td>').join('')+'</tr>').join('')+'</tbody></table>';
  const cases=[
