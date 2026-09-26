@@ -23,7 +23,9 @@ jobs:
           js=Path("field-reference.js").read_text()
           css=Path("field-reference.css").read_text()
           assert "display_summary||''" in js, "undefined-safe field text guard missing"
-          assert "Number(r.rule_id)" in js, "numeric rule id normalization missing"
+          assert "phase==='normal'" in js, "normal phase parser missing"
+          assert "strategy_type===kind" in js, "strategy type parser missing"
+          assert "前回AT枚数 200～1000枚" in js, "Tokyo Ghoul case parser missing"
           assert "ghoul-data" in js, "numeric decision table renderer missing"
           assert "grid-template-columns:1fr!important" in css, "mobile case stack guard missing"
           assert "overflow-x:hidden" in css, "horizontal overflow guard missing"
