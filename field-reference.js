@@ -31,14 +31,19 @@ function ghoulTables(rows){
  ];
  const normalHtml='<h3 class="fr-title">通常</h3><div class="ghoul-note">※ 当該CZ間をAT間に足さない　<span>← 横にスワイプ →</span></div><div class="ghoul-case-carousel">'+cases.map(([name,match])=>{const cz=pick('cz_interval',match),at=pick('at_interval',match),czd=czRows(cz),atd=atRows(at);if(!czd.length||!atd.length)return '<section class="ghoul-case ghoul-case-row fr-data-error"><h4>'+name+'</h4><p>データ読込異常</p></section>';return '<section class="ghoul-case ghoul-case-row"><h4>'+name+'</h4><div class="ghoul-cz-strip"><b class="cz-head">CZ間</b><table class="ghoul-data cz-matrix"><thead><tr><th>差枚</th><th>開始G</th></tr></thead><tbody>'+czd.map(x=>'<tr><td>'+esc(x[0])+'</td><td>'+esc(x[1])+'</td></tr>').join('')+'</tbody></table></div><div class="ghoul-at-full"><b class="at-head">AT間</b>'+atCompact(atd)+'</div></section>'}).join('')+'</div>';
  const reset=kind=>text(resetRows.find(r=>r.strategy_type===kind)).replace(/^朝一(?:ゾーン：|AT：|\s*)/,'');
- const zone=reset('zone').split('｜').map(x=>x.trim()).filter(Boolean);
- const rat=reset('at_interval').split('｜').map(x=>x.trim()).filter(Boolean);
- const zoneRows=zone.map(x=>{const m=x.match(/^(\\d+スルー)\\s*前回(.+?)→(.+)$/);return m?[m[1],m[2],m[3]]:['',x,'']});
- const atRowsMorning=rat.map(x=>{const m=x.match(/^(\\d+スルー(?:以降|～)?)\\s*(.+)$/);return m?[m[1],m[2]]:['',x]});
  const morning='<h3 class="fr-title">朝一</h3><div class="morning-tables">'
-  +'<section class="morning-block morning-cz"><b>CZ</b><table><thead><tr><th>スルー</th><th>開始CZ間</th></tr></thead><tbody><tr><td>0スルー</td><td>20G〜</td></tr></tbody></table></section>'
-  +'<section class="morning-block morning-zone"><b>ゾーン</b><table><thead><tr><th>スルー</th><th>前回条件</th><th>狙いゾーン</th></tr></thead><tbody>'+zoneRows.map(x=>'<tr><td>'+esc(x[0])+'</td><td>'+esc(x[1])+'</td><td>'+esc(x[2])+'</td></tr>').join('')+'</tbody></table></section>'
-  +'<section class="morning-block morning-at"><b>AT</b><table><thead><tr><th>スルー</th><th>CZ間 → 必要AT間</th></tr></thead><tbody>'+atRowsMorning.map(x=>'<tr><td>'+esc(x[0])+'</td><td>'+esc(x[1])+'</td></tr>').join('')+'</tbody></table></section>'
+  +'<section class="morning-block morning-cz"><b>CZ間</b><table><thead><tr><th>スルー</th><th>開始G</th></tr></thead><tbody><tr><td>0スルー</td><td>20G〜</td></tr></tbody></table></section>'
+  +'<section class="morning-block morning-zone"><b>ゾーン</b><table><thead><tr><th>スルー</th><th>前回G</th><th>狙いG</th></tr></thead><tbody>'
+   +'<tr><td rowspan="2">1スルー</td><td>0〜50 / 150〜200</td><td>20〜100G</td></tr>'
+   +'<tr><td>それ以外</td><td>0〜100G</td></tr>'
+   +'<tr><td rowspan="2">2スルー</td><td>250以内</td><td>30〜100G</td></tr>'
+   +'<tr><td>250以上</td><td>60〜100G</td></tr>'
+  +'</tbody></table><small class="morning-warning">※ 250は原文が「以内／以上」で重複。未解決のまま表示。</small></section>'
+  +'<section class="morning-block morning-at"><b>AT間</b><table><thead><tr><th>スルー</th><th>現在CZ間</th><th>必要AT間</th></tr></thead><tbody>'
+   +'<tr><td rowspan="2">1スルー</td><td>150G</td><td>350G〜</td></tr><tr><td>200G</td><td>0G〜</td></tr>'
+   +'<tr><td rowspan="4">2スルー</td><td>0G</td><td>480G〜</td></tr><tr><td>50G</td><td>450G〜</td></tr><tr><td>100G</td><td>350G〜</td></tr><tr><td>150G</td><td>0G〜</td></tr>'
+   +'<tr><td>3スルー〜</td><td>0G</td><td>0G〜</td></tr>'
+  +'</tbody></table></section>'
   +'</div>';
  return normalHtml+morning;
 }
