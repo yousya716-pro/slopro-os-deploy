@@ -11,23 +11,23 @@ jobs:
       - name: Validate production field research shell
         run: |
           set -euo pipefail
-          test -f field-reference-rollout-v2.css
+          test -f field-reference-rollout-v3.css
           test -f index.html
           test -f sw.js
           python3 - <<'PY'
           from pathlib import Path
           html=Path("index.html").read_text()
           sw=Path("sw.js").read_text()
-          css=Path("field-reference-rollout-v2.css").read_text()
+          css=Path("field-reference-rollout-v3.css").read_text()
           assert chr(92)+"n" not in html, "literal backslash-n found in index.html"
-          assert '<link rel="stylesheet" href="./field-reference-rollout-v2.css">' in html
+          assert '<link rel="stylesheet" href="./field-reference-rollout-v3.css">' in html
           assert '<script src="./app-field-reference-v2.js"></script>' in html
           assert 'field-reference-v5.js' not in html
           assert 'field-reference-v12.css' not in html
           assert 'field-carousel-v25.css' not in html
-          assert "'./field-reference-rollout-v2.css'" in sw
+          assert "'./field-reference-rollout-v3.css'" in sw
           assert "'./app-field-reference-v2.js'" in sw
-          assert "slopro-public-shell-v42-field-reference-js" in sw
+          assert "slopro-public-shell-v43-field-density" in sw
           assert "calc(66.6667% - 4px)" in css
           assert "scroll-snap-type:x mandatory" in css
           assert "scroll-snap-stop:normal" in css
