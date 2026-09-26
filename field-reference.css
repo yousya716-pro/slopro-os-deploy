@@ -21,3 +21,5 @@
 
 /* Density pass: preserve approved font sizes, remove wasted space */
 .ghoul-case-tables{align-items:start}.ghoul-case-tables>div{align-self:start}.ghoul-data{height:auto}.ghoul-data tbody{height:auto}.ghoul-case-row{padding-bottom:0!important}.ghoul-case-row>h4{margin-bottom:0!important}.ghoul-case-tables{padding-top:4px!important;padding-bottom:4px!important}.ghoul-data th{line-height:1.05}.ghoul-data td{line-height:1.08}.ghoul-morning-grid{align-items:start}.ghoul-morning-grid section{align-self:start;height:auto!important;min-height:0!important}
+
+.ghoul-morning-grid p{white-space:pre-line;margin:5px 0 2px}
