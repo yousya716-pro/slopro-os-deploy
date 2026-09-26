@@ -1,0 +1,44 @@
+/* Private research UI. Reference v25 carousel dimensions; no synthetic touch movement. */
+.quick-screen.compact-field-screen{height:calc(100svh - 74px);min-width:0}
+.field-ref-wrap,.field-ref-card{min-width:0}
+.field-ref-card{font-size:13px;line-height:1.3;padding:0 3px 12px}
+.field-ref-badge{font-size:11px;padding:5px 7px}
+.fr-section{min-width:0;margin-top:7px}
+.fr-section h3{font-size:14px;margin:0 0 5px;padding:5px 8px;background:#183528;border-left:3px solid #65d99a}
+.fr-rule-list,.fr-morning{display:grid;grid-template-columns:1fr;gap:7px}
+.fr-rule-card,.fr-case{min-width:0;border:1px solid #4a6655;background:#111713;border-radius:5px;overflow:hidden}
+.fr-rule-card h4,.fr-case h4{font-size:13px;margin:0;padding:6px 8px;background:#28553f}
+.fr-semantic{width:100%;table-layout:fixed;border-collapse:collapse}
+.fr-semantic th,.fr-semantic td{width:auto;text-align:left;vertical-align:middle;overflow-wrap:anywhere;padding:5px 6px;font-size:12px;line-height:1.2}
+.fr-semantic th{color:#bdc9c2;background:#1a241f;font-size:11px}
+.fr-semantic td{color:#fff;font-weight:700}
+.fr-rule-card .fr-semantic th:first-child{width:47%}
+.fr-note{font-size:11px;margin:3px 0 5px;color:#bdd4c5}
+.fr-warning,.fr-unknown{color:#ffd28a;padding:6px 8px;margin:0;font-size:11px;line-height:1.35}
+.fr-carousel{display:flex;gap:6px;overflow-x:auto;overflow-y:hidden;padding:0 0 2px;scroll-snap-type:x mandatory;scroll-padding-left:0;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;touch-action:pan-x pan-y}
+.fr-carousel>.fr-case{flex:0 0 calc(66.6667% - 4px);width:calc(66.6667% - 4px);min-width:0;max-width:none;margin:0;box-sizing:border-box;scroll-snap-align:start;scroll-snap-stop:normal}
+.fr-carousel::after{content:none;display:none}
+.fr-case-part{margin:4px}
+.fr-case-part>b{display:block;padding:4px 6px;background:#16452e;font-size:12px;color:#d8ffe4}
+.fr-at>b{background:#173b60;color:#d8eaff}
+.fr-case .fr-semantic th,.fr-case .fr-semantic td{padding:3px 2px;text-align:center;white-space:normal;font-size:11.5px}
+.fr-case .fr-semantic th{font-size:10px}
+.fr-case .at-matrix th:first-child{width:25%}
+.fr-case .at-matrix th:nth-child(2){width:32%}
+.fr-case .at-matrix th:last-child{width:43%}
+.fr-case .cz-matrix th:first-child{width:58%}
+.fr-morning .fr-rule-card{margin-bottom:2px}
+@media(max-width:390px){.quick-screen.compact-field-screen{height:calc(100svh - 58px)}.fr-case .fr-semantic td{font-size:11px}.fr-case .fr-semantic th{font-size:9.5px}}
+
+/* Reference UI rail restoration: persistent 34-machine research navigation. */
+.field-machine-screen{position:relative;display:block!important;overflow:hidden}
+.field-machine-main{height:100%;min-width:0;margin-left:70px;display:flex;flex-direction:column}
+.field-machine-main .field-ref-wrap{flex:1;min-height:0;overflow-y:auto}
+.fr-rail{position:absolute;z-index:5;left:0;top:0;bottom:0;width:66px;background:#0a0f0c;border-right:1px solid #405348;box-sizing:border-box}
+.fr-rail-list{height:100%;overflow-y:auto;overscroll-behavior:contain;padding:3px 3px 12px;scrollbar-width:none}
+.fr-rail-list::-webkit-scrollbar{display:none}
+.fr-rail-machine{position:relative;width:100%;height:31px;display:block;overflow:hidden;white-space:nowrap;text-align:left;padding:0 4px;margin:1px 0;border:1px solid #28362f;border-radius:3px;background:#0f1511;color:#c8d1cc;font-size:9.5px;font-weight:800}
+.fr-rail-machine span{display:block;overflow:hidden;white-space:nowrap;text-overflow:clip}
+.fr-rail-machine.active{background:#226044;border-color:#64d496;color:#fff;box-shadow:inset 3px 0 0 #82e5aa}
+.fr-rail-machine i{position:absolute;right:3px;top:2px;color:#ffd978;font-size:12px;font-style:normal;line-height:10px}
+@media(min-width:391px){.field-machine-main{margin-left:70px}.fr-rail{width:70px}.fr-rail-machine{font-size:10px}}
