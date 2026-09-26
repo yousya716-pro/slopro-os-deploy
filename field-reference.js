@@ -15,12 +15,13 @@ function compactPredicates(ps){const x=(ps||[]).filter(p=>p.field!=='morning_sta
 function genericTable(rows){if(!rows.length)return'';const items=rows.map(r=>({label:shortLabel(r.label),text:compactPredicates(r.predicates)})),max=Math.max(...items.map(x=>(x.label+x.text).length)),cols=max<=34?3:max<=68?2:1;return '<div class="fr-auto-grid fr-cols-'+cols+'">'+items.map(x=>'<section class="fr-rule-card"><h4>'+esc(x.label)+'</h4><div>'+esc(x.text)+'</div></section>').join('')+'</div>'}
 function ghoulTables(rows){
  const get=(phase,type)=>rows.find(r=>r.phase===phase&&r.strategy_type===type)?.display_summary||'';
- const strip=s=>String(s).split('\n').filter(x=>x&&!/^(▼|50貸50交換|０?0?スルー$)/.test(x)&&!/^駆け抜け/.test(x)&&!/^朝一/.test(x)).join('\n');
+ const strip=s=>String(s||'').split('\n').filter(x=>x&&!/^(▼|50貸50交換|０?0?スルー$)/.test(x)&&!/^駆け抜け/.test(x)&&!/^朝一/.test(x)).join('\n');
  const normal=rows.filter(r=>r.phase==='normal'), reset=rows.filter(r=>r.phase==='reset');
+ const rid=r=>Number(r?.rule_id);
  const groups=[
-  ['駆け抜け',normal.find(r=>r.rule_id===1),normal.find(r=>r.rule_id===2)],
-  ['前回AT 200–1000枚',normal.find(r=>r.rule_id===5),normal.find(r=>r.rule_id===6)],
-  ['前回AT 1000枚以上',normal.find(r=>r.rule_id===9),normal.find(r=>r.rule_id===10)]
+  ['駆け抜け',normal.find(r=>rid(r)===1),normal.find(r=>rid(r)===2)],
+  ['前回AT 200–1000枚',normal.find(r=>rid(r)===5),normal.find(r=>rid(r)===6)],
+  ['前回AT 1000枚以上',normal.find(r=>rid(r)===9),normal.find(r=>rid(r)===10)]
  ];
  const n='<h3 class="fr-title">通常</h3><div class="ghoul-case-grid">'+groups.map(g=>'<section class="ghoul-case"><h4>'+g[0]+'</h4><div class="ghoul-split"><div><b>CZ間</b><p>'+esc(strip(g[1]?.display_summary))+'</p></div><div><b>AT間</b><p>'+esc(strip(g[2]?.display_summary))+'</p></div></div></section>').join('')+'</div>';
  const cz=get('reset','cz_interval').replace(/^朝一\s*/,'');
