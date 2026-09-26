@@ -289,3 +289,26 @@
     min-width:258px!important;
   }
 }
+
+
+/* Readability correction v11: material compactness.
+   Use an explicit pixel envelope so viewport math cannot mask the change.
+   Normal carousel only; morning matrices remain untouched. */
+.ghoul-case-carousel>.ghoul-case{
+  flex:0 0 clamp(232px,62vw,244px)!important;
+  width:clamp(232px,62vw,244px)!important;
+  min-width:232px!important;
+  max-width:244px!important;
+}
+.ghoul-case-carousel .cz-matrix th:first-child{width:54%!important}
+.ghoul-case-carousel .cz-matrix th:last-child{width:46%!important}
+.ghoul-case-carousel .at-matrix th:nth-child(1){width:23%!important}
+.ghoul-case-carousel .at-matrix th:nth-child(2){width:31%!important}
+.ghoul-case-carousel .at-matrix th:nth-child(3){width:46%!important}
+.ghoul-case-carousel .cz-matrix th,
+.ghoul-case-carousel .cz-matrix td,
+.ghoul-case-carousel .at-matrix th,
+.ghoul-case-carousel .at-matrix td{
+  padding-left:1px!important;
+  padding-right:1px!important;
+}
