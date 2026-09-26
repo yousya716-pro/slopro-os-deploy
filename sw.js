@@ -1,4 +1,4 @@
-const CACHE_NAME = 'slopro-public-shell-v23-field-reference';
+const CACHE_NAME = 'slopro-public-shell-v24-field-reference';
 const FILES = ['./', './index.html', './styles.css', './decision-ui.css', './field-reference.css','./field-reference-v6.css', './config.js', './app.js', './field-reference.js', './manifest.webmanifest'];
 
 self.addEventListener('install', (event) => {
