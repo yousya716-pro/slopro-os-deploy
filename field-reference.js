@@ -26,7 +26,7 @@ function ghoulTables(rows){
   ['前回AT 200〜1000枚',s=>s.includes('前回AT枚数 200～1000枚')],
   ['前回AT 1000枚以上',s=>s.includes('前回AT枚数1000枚以上')]
  ];
- const normalHtml='<h3 class="fr-title">通常</h3>'+cases.map(([name,match])=>{const cz=pick('cz_interval',match),at=pick('at_interval',match);return '<section class="ghoul-case ghoul-case-row"><h4>'+name+'</h4><div class="ghoul-case-tables"><div><b class="cz-head">CZ間</b>'+table(['差枚','開始'],czRows(cz),'cz-table')+'</div><div><b class="at-head">AT間</b>'+table(['スルー','CZ間','AT間',''],atRows(at),'at-table')+'</div></div></section>'}).join('');
+ const normalHtml='<h3 class="fr-title">通常</h3>'+cases.map(([name,match])=>{const cz=pick('cz_interval',match),at=pick('at_interval',match),czd=czRows(cz),atd=atRows(at);if(!czd.length||!atd.length)return '<section class="ghoul-case ghoul-case-row fr-data-error"><h4>'+name+'</h4><p>データ読込異常</p></section>';return '<section class="ghoul-case ghoul-case-row"><h4>'+name+'</h4><div class="ghoul-case-tables"><div><b class="cz-head">CZ間</b>'+table(['差枚','開始'],czd,'cz-table')+'</div><div><b class="at-head">AT間</b>'+table(['スルー','CZ間','AT間',''],atd,'at-table')+'</div></div></section>'}).join('');
  const reset=kind=>text(resetRows.find(r=>r.strategy_type===kind)).replace(/^朝一(?:ゾーン：|AT：|\s*)/,'');
  const zone=reset('zone').replace(/｜/g,'\n');
  const rat=reset('at_interval').replace(/｜/g,'\n');
