@@ -23,7 +23,7 @@ function ghoulTables(rows){
  const atRows=r=>{let s='';return lines(r).flatMap(x=>{if(/^\d+スルー/.test(x)){s=x.replace('以降','〜');return []}if(!x.startsWith('・'))return [];const m=x.match(/当該CZ間\s*([０0-9]+G)｜AT間(.+?)(?:（当該足さず）)?$/);return m?[[s,m[1].replace('０','0'),m[2].replace(/（当該足さず）/g,''),x.includes('当該足さず')]]:[]});};
  const table=(head,body,cls='')=>'<table class="ghoul-data '+cls+'"><thead><tr>'+head.map(x=>'<th>'+x+'</th>').join('')+'</tr></thead><tbody>'+body.map(r=>'<tr>'+r.map(x=>'<td>'+esc(x===true?'※':x===false?'':x)+'</td>').join('')+'</tr>').join('')+'</tbody></table>';
  const atGrouped=rows=>{const groups=[];for(const [through,cz,at,note] of rows){let g=groups.find(x=>x[0]===through);if(!g){g=[through,[]];groups.push(g)}g[1].push(cz.replace(/G$/,'')+'→'+at+(note?'※':''))}return groups};
- const atCompact=rows=>'<table class="ghoul-data at-compact"><thead><tr><th>スルー</th><th>CZ→AT</th></tr></thead><tbody>'+atGrouped(rows).map(([s,x])=>'<tr><td>'+esc(s)+'</td><td>'+x.map(esc).join('　')+'</td></tr>').join('')+'</tbody></table>';
+ const atCompact=rows=>'<table class="ghoul-data at-compact"><thead><tr><th>スルー</th><th><span class="at-axis"><b>現在CZ間</b><i>→</i><b>打ち始めAT間</b></span></th></tr></thead><tbody>'+atGrouped(rows).map(([s,x])=>'<tr><td>'+esc(s)+'</td><td>'+x.map(esc).join('　')+'</td></tr>').join('')+'</tbody></table>';
  const cases=[
   ['駆け抜け',s=>s.startsWith('駆け抜け後')],
   ['前回AT 200〜1000枚',s=>s.includes('前回AT枚数 200～1000枚')],
