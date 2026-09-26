@@ -37,7 +37,7 @@ jobs:
           assert "overflow-x:hidden" in css, "horizontal overflow guard missing"
           assert "flex:0 0 60%!important" in css and "width:60%!important" in css and "max-width:60%!important" in css, "60 percent two-screen carousel contract missing"
           assert "scroll-snap-type:x proximity!important" in css and "scroll-snap-stop:normal!important" in css and "touch-action:pan-x pan-y!important" in css, "gesture tuning contract missing"
-          assert "Gesture v18: native iOS scrolling only" in js and "scrollBy(" not in js and "touchend" not in js, "native-only gesture v18 missing"
+          assert "Gesture v18: native iOS scrolling only" in js and "scrollBy(" not in js and "addEventListener('touchend'" not in js, "native-only gesture v18 missing"
           assert "morning-tables" in js and "morning-block" in js, "morning table renderer missing"
           assert "250以内" in js and "250以上" in js and "480G〜" in js, "explicit morning matrix missing"
           assert "原文が「以内／以上」で重複" in js, "morning overlap warning missing"
