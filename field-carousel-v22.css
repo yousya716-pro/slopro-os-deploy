@@ -1,0 +1,23 @@
+/* Tokyo Ghoul normal carousel v22 — isolated final override. */
+.ghoul-case-carousel{
+ display:flex!important;
+ gap:6px!important;
+ overflow-x:auto!important;
+ overflow-y:hidden!important;
+ padding:0 40% 2px 0!important;
+ scroll-snap-type:x mandatory!important;
+ scroll-padding-left:0!important;
+ -webkit-overflow-scrolling:touch!important;
+ overscroll-behavior-x:contain!important;
+ touch-action:pan-x pan-y!important;
+}
+.ghoul-case-carousel>.ghoul-case{
+ flex:0 0 60%!important;
+ width:60%!important;
+ min-width:60%!important;
+ max-width:60%!important;
+ margin:0!important;
+ box-sizing:border-box!important;
+ scroll-snap-align:start!important;
+ scroll-snap-stop:normal!important;
+}
