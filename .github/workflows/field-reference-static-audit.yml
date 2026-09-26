@@ -35,7 +35,7 @@ jobs:
           assert "iPhone density pass" in css, "iPhone density profile missing"
           assert "grid-template-columns:1fr!important" in css, "mobile case stack guard missing"
           assert "overflow-x:hidden" in css, "horizontal overflow guard missing"
-          assert "min-width:282px!important" in css and "76vw" in css, "compact readable carousel width missing"
+          assert "min-width:258px!important" in css and "72vw" in css, "compact readable carousel width missing"
           assert "morning-tables" in js and "morning-block" in js, "morning table renderer missing"
           assert "250以内" in js and "250以上" in js and "480G〜" in js, "explicit morning matrix missing"
           assert "原文が「以内／以上」で重複" in js, "morning overlap warning missing"
