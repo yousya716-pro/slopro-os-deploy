@@ -35,8 +35,10 @@ jobs:
           assert "iPhone density pass" in css, "iPhone density profile missing"
           assert "grid-template-columns:1fr!important" in css, "mobile case stack guard missing"
           assert "overflow-x:hidden" in css, "horizontal overflow guard missing"
-          assert "flex:0 0 56%!important" in css, "hard-width carousel v6 missing"
+          assert "flex:0 0 68%!important" in css, "readable carousel width missing"
           assert "morning-tables" in js and "morning-block" in js, "morning table renderer missing"
+          assert "250以内" in js and "250以上" in js and "480G〜" in js, "explicit morning matrix missing"
+          assert "原文が「以内／以上」で重複" in js, "morning overlap warning missing"
           assert ".morning-tables" in css and ".morning-zone" in css and ".morning-at" in css, "morning table CSS missing"
           print("FIELD_REFERENCE_STATIC_AUDIT_OK")
           PY
