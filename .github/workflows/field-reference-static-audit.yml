@@ -17,7 +17,7 @@ jobs:
           sw=Path("sw.js").read_text()
           assert chr(92)+"n" not in html, "literal backslash-n found in index.html"
           assert '<script src="./field-reference.js?v=' in html
-          assert '<link rel="stylesheet" href="./field-reference-v6.css">' in html
+          assert '<link rel="stylesheet" href="./field-reference-v6.css' in html
           assert "'./field-reference.js'" in sw
           assert "'./field-reference-v6.css'" in sw
           js=Path("field-reference.js").read_text()
@@ -36,5 +36,7 @@ jobs:
           assert "grid-template-columns:1fr!important" in css, "mobile case stack guard missing"
           assert "overflow-x:hidden" in css, "horizontal overflow guard missing"
           assert "flex:0 0 56%!important" in css, "hard-width carousel v6 missing"
+          assert "morning-tables" in js and "morning-block" in js, "morning table renderer missing"
+          assert ".morning-tables" in css and ".morning-zone" in css and ".morning-at" in css, "morning table CSS missing"
           print("FIELD_REFERENCE_STATIC_AUDIT_OK")
           PY
