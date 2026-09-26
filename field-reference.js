@@ -22,12 +22,14 @@ function ghoulTables(rows){
  const czRows=r=>lines(r).filter(x=>/^0から差枚/.test(x)).map(x=>{const p=x.split('｜');return [czBand(p[0].replace(/^0から差枚\s*/,'')),p[1]||''];});
  const atRows=r=>{let s='';return lines(r).flatMap(x=>{if(/^\d+スルー/.test(x)){s=x.replace('以降','〜');return []}if(!x.startsWith('・'))return [];const m=x.match(/当該CZ間\s*([０0-9]+G)｜AT間(.+?)(?:（当該足さず）)?$/);return m?[[s,m[1].replace('０','0'),m[2].replace(/（当該足さず）/g,''),x.includes('当該足さず')]]:[]});};
  const table=(head,body,cls='')=>'<table class="ghoul-data '+cls+'"><thead><tr>'+head.map(x=>'<th>'+x+'</th>').join('')+'</tr></thead><tbody>'+body.map(r=>'<tr>'+r.map(x=>'<td>'+esc(x===true?'※':x===false?'':x)+'</td>').join('')+'</tr>').join('')+'</tbody></table>';
+ const atGrouped=rows=>{const groups=[];for(const [through,cz,at,note] of rows){let g=groups.find(x=>x[0]===through);if(!g){g=[through,[]];groups.push(g)}g[1].push(cz.replace(/G$/,'')+'→'+at+(note?'※':''))}return groups};
+ const atCompact=rows=>'<table class="ghoul-data at-compact"><thead><tr><th>スルー</th><th>CZ→AT</th></tr></thead><tbody>'+atGrouped(rows).map(([s,x])=>'<tr><td>'+esc(s)+'</td><td>'+x.map(esc).join('　')+'</td></tr>').join('')+'</tbody></table>';
  const cases=[
   ['駆け抜け',s=>s.startsWith('駆け抜け後')],
   ['前回AT 200〜1000枚',s=>s.includes('前回AT枚数 200～1000枚')],
   ['前回AT 1000枚以上',s=>s.includes('前回AT枚数1000枚以上')]
  ];
- const normalHtml='<h3 class="fr-title">通常</h3>'+cases.map(([name,match])=>{const cz=pick('cz_interval',match),at=pick('at_interval',match),czd=czRows(cz),atd=atRows(at);if(!czd.length||!atd.length)return '<section class="ghoul-case ghoul-case-row fr-data-error"><h4>'+name+'</h4><p>データ読込異常</p></section>';return '<section class="ghoul-case ghoul-case-row"><h4>'+name+'</h4><div class="ghoul-cz-strip"><b class="cz-head">CZ間</b><div class="ghoul-cz-chips">'+czd.map(x=>'<span><small>'+esc(x[0])+'</small><strong>'+esc(x[1])+'</strong></span>').join('')+'</div></div><div class="ghoul-at-full"><b class="at-head">AT間</b>'+table(['スルー','CZ間','AT間',''],atd,'at-table')+'</div></section>'}).join('');
+ const normalHtml='<h3 class="fr-title">通常</h3>'+cases.map(([name,match])=>{const cz=pick('cz_interval',match),at=pick('at_interval',match),czd=czRows(cz),atd=atRows(at);if(!czd.length||!atd.length)return '<section class="ghoul-case ghoul-case-row fr-data-error"><h4>'+name+'</h4><p>データ読込異常</p></section>';return '<section class="ghoul-case ghoul-case-row"><h4>'+name+'</h4><div class="ghoul-cz-strip"><b class="cz-head">CZ間</b><div class="ghoul-cz-chips">'+czd.map(x=>'<span><small>'+esc(x[0])+'</small><strong>'+esc(x[1])+'</strong></span>').join('')+'</div></div><div class="ghoul-at-full"><b class="at-head">AT間</b>'+atCompact(atd)+'</div></section>'}).join('');
  const reset=kind=>text(resetRows.find(r=>r.strategy_type===kind)).replace(/^朝一(?:ゾーン：|AT：|\s*)/,'');
  const zone=reset('zone').replace(/｜/g,'\n');
  const rat=reset('at_interval').replace(/｜/g,'\n');
