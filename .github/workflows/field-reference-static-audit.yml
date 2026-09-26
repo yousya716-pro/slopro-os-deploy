@@ -20,5 +20,11 @@ jobs:
           assert '<link rel="stylesheet" href="./field-reference.css">' in html
           assert "'./field-reference.js'" in sw
           assert "'./field-reference.css'" in sw
+          js=Path("field-reference.js").read_text()
+          css=Path("field-reference.css").read_text()
+          assert "String(s||'')" in js, "undefined-safe field text guard missing"
+          assert "Number(r?.rule_id)" in js, "numeric rule id normalization missing"
+          assert "grid-template-columns:1fr!important" in css, "mobile case stack guard missing"
+          assert "overflow-x:hidden" in css, "horizontal overflow guard missing"
           print("FIELD_REFERENCE_STATIC_AUDIT_OK")
           PY
