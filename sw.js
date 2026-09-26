@@ -1,5 +1,5 @@
-const CACHE_NAME = 'slopro-public-shell-v35-field-reference';
-const FILES = ['./', './index.html', './styles.css', './decision-ui.css', './field-reference.css','./field-reference-v6.css','./field-reference-v7.css','./field-reference-v8.css','./field-reference-v9.css','./field-reference-v10.css','./field-reference-v11.css','./field-reference-v12.css', './config.js', './app.js', './field-reference.js','./field-reference-v2.js','./field-reference-v3.js','./field-reference-v4.js','./field-reference-v5.js', './manifest.webmanifest'];
+const CACHE_NAME = 'slopro-public-shell-v36-field-reference';
+const FILES = ['./', './index.html', './styles.css', './decision-ui.css', './field-reference.css','./field-reference-v6.css','./field-reference-v7.css','./field-reference-v8.css','./field-reference-v9.css','./field-reference-v10.css','./field-reference-v11.css','./field-reference-v12.css','./field-carousel-v22.css', './config.js', './app.js', './field-reference.js','./field-reference-v2.js','./field-reference-v3.js','./field-reference-v4.js','./field-reference-v5.js', './manifest.webmanifest'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(FILES)).then(() => self.skipWaiting()));
