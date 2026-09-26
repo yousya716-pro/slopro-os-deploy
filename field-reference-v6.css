@@ -263,3 +263,29 @@
     min-width:282px!important;
   }
 }
+
+
+/* Readability correction v10: fix v9 min-width dominance.
+   Normal carousel only. Morning matrices remain unchanged. */
+.ghoul-case-carousel>.ghoul-case{
+  flex:0 0 min(72vw,278px)!important;
+  width:min(72vw,278px)!important;
+  max-width:278px!important;
+  min-width:258px!important;
+}
+.ghoul-case-carousel .at-matrix th:nth-child(1){width:24%!important}
+.ghoul-case-carousel .at-matrix th:nth-child(2){width:31%!important}
+.ghoul-case-carousel .at-matrix th:nth-child(3){width:45%!important}
+.ghoul-case-carousel .at-matrix th,
+.ghoul-case-carousel .at-matrix td{
+  padding-left:1px!important;
+  padding-right:1px!important;
+}
+@media(max-width:390px){
+  .ghoul-case-carousel>.ghoul-case{
+    flex-basis:min(74vw,272px)!important;
+    width:min(74vw,272px)!important;
+    max-width:272px!important;
+    min-width:258px!important;
+  }
+}
