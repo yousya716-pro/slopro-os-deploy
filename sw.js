@@ -1,8 +1,8 @@
-const CACHE_NAME = 'slopro-public-shell-v14-field-reference';
+const CACHE_NAME = 'slopro-public-shell-v15-field-reference';
 const FILES = ['./', './index.html', './styles.css', './decision-ui.css', './field-reference.css', './config.js', './app.js', './field-reference.js', './manifest.webmanifest'];
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(FILES)));
+  event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(FILES)).then(() => self.skipWaiting()));
 });
 
 self.addEventListener('activate', (event) => {
