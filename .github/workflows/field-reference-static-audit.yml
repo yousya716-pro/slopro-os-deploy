@@ -32,6 +32,7 @@ jobs:
           assert "scroll-snap-type:x mandatory" in css
           assert "scroll-snap-stop:normal" in css
           assert "touch-action:pan-x pan-y" in css
-          assert ".fr-morning" in css and ".zone-matrix" in css and ".at-matrix" in css
+          assert ".fr-morning" in css and ".at-matrix" in css
+          assert "スルー" not in css, "decision/source text must not be hardcoded in presentation CSS"
           print("FIELD_REFERENCE_STATIC_AUDIT_OK")
           PY
