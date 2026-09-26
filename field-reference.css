@@ -141,3 +141,30 @@
     max-width:72%!important;
   }
 }
+
+
+/* Carousel v5: genuinely compact phone cards.
+   Keep approved font sizes; reclaim width from columns/card chrome. */
+@media(max-width:430px){
+  .ghoul-case-carousel{
+    gap:6px!important;
+    padding-right:46px!important;
+  }
+  .ghoul-case-carousel>.ghoul-case{
+    flex:0 0 62%!important;
+    width:62%!important;
+    max-width:62%!important;
+  }
+  .ghoul-case-carousel .at-matrix th:nth-child(1){width:22%!important}
+  .ghoul-case-carousel .at-matrix th:nth-child(2){width:30%!important}
+  .ghoul-case-carousel .at-matrix th:nth-child(3){width:48%!important}
+  .ghoul-case-carousel .cz-matrix th:first-child{width:55%!important}
+  .ghoul-case-carousel .cz-matrix th:last-child{width:45%!important}
+}
+@media(max-width:390px){
+  .ghoul-case-carousel>.ghoul-case{
+    flex-basis:60%!important;
+    width:60%!important;
+    max-width:60%!important;
+  }
+}
