@@ -14,16 +14,22 @@ function shortLabel(s){return String(s||'条件').replace(/^Tokyo Ghoul morning 
 function compactPredicates(ps){const x=(ps||[]).filter(p=>p.field!=='morning_state');return x.map(p=>{const k=labels[p.field]??p.field,v=val(p.value);if(p.op==='eq')return k+' '+v;if(p.op==='gte')return k+' '+v+'～';if(p.op==='lte')return k+' ～'+v;return k+(ops[p.op]??p.op)+v}).join(' / ')}
 function genericTable(rows){if(!rows.length)return'';const items=rows.map(r=>({label:shortLabel(r.label),text:compactPredicates(r.predicates)})),max=Math.max(...items.map(x=>(x.label+x.text).length)),cols=max<=34?3:max<=68?2:1;return '<div class="fr-auto-grid fr-cols-'+cols+'">'+items.map(x=>'<section class="fr-rule-card"><h4>'+esc(x.label)+'</h4><div>'+esc(x.text)+'</div></section>').join('')+'</div>'}
 function ghoulTables(rows){
- const byId=id=>rows.find(r=>Number(r.rule_id)===id);
- const lines=id=>String(byId(id)?.display_summary||'').split('\n').map(x=>x.trim()).filter(Boolean);
- const czRows=id=>lines(id).filter(x=>/^0から差枚/.test(x)).map(x=>{const p=x.split('｜');return [p[0].replace(/^0から差枚\s*/,''),p[1]||''];});
- const atRows=id=>{let s='';return lines(id).flatMap(x=>{if(/^\d+スルー/.test(x)){s=x.replace('以降','〜');return []}if(!x.startsWith('・'))return [];const m=x.match(/当該CZ間\s*([０0-9]+G)｜AT間(.+?)(?:（当該足さず）)?$/);return m?[[s,m[1].replace('０','0'),m[2].replace(/（当該足さず）/g,''),x.includes('当該足さず')]]:[]});};
- const table=(head,body,cls='')=>'<table class="ghoul-data '+cls+'"><thead><tr>'+head.map(x=>'<th>'+x+'</th>').join('')+'</tr></thead><tbody>'+body.map(r=>'<tr>'+r.map((x,i)=>'<td'+(x===true?' class="note"':'')+'>'+esc(x===true?'※':x===false?'':x)+'</td>').join('')+'</tr>').join('')+'</tbody></table>';
- const cases=[['駆け抜け',1,2],['前回AT 200〜1000枚',5,6],['前回AT 1000枚以上',9,10]];
- const normal='<h3 class="fr-title">通常</h3>'+cases.map(([name,cz,at])=>'<section class="ghoul-case ghoul-case-row"><h4>'+name+'</h4><div class="ghoul-case-tables"><div><b class="cz-head">CZ間</b>'+table(['差枚','開始'],czRows(cz),'cz-table')+'</div><div><b class="at-head">AT間</b>'+table(['スルー','CZ間','AT間',''],atRows(at),'at-table')+'</div></div></section>').join('');
- const reset=id=>String(byId(id)?.display_summary||'').replace(/^朝一(?:ゾーン：|AT：|\s*)/,'');
- const morning='<h3 class="fr-title">朝一</h3><div class="ghoul-morning-grid"><section><b>CZ</b><p>'+esc(reset(13))+'</p></section><section><b>ゾーン</b><p>'+esc(reset(14))+'</p></section><section><b>AT</b><p>'+esc(reset(15))+'</p></section></div>';
- return normal+morning;
+ const normal=rows.filter(r=>r.phase==='normal'), resetRows=rows.filter(r=>r.phase==='reset');
+ const text=r=>String(r?.display_summary||'');
+ const pick=(kind,match)=>normal.find(r=>r.strategy_type===kind&&match(text(r)));
+ const lines=r=>text(r).split('\n').map(x=>x.trim()).filter(Boolean);
+ const czRows=r=>lines(r).filter(x=>/^0から差枚/.test(x)).map(x=>{const p=x.split('｜');return [p[0].replace(/^0から差枚\s*/,''),p[1]||''];});
+ const atRows=r=>{let s='';return lines(r).flatMap(x=>{if(/^\d+スルー/.test(x)){s=x.replace('以降','〜');return []}if(!x.startsWith('・'))return [];const m=x.match(/当該CZ間\s*([０0-9]+G)｜AT間(.+?)(?:（当該足さず）)?$/);return m?[[s,m[1].replace('０','0'),m[2].replace(/（当該足さず）/g,''),x.includes('当該足さず')]]:[]});};
+ const table=(head,body,cls='')=>'<table class="ghoul-data '+cls+'"><thead><tr>'+head.map(x=>'<th>'+x+'</th>').join('')+'</tr></thead><tbody>'+body.map(r=>'<tr>'+r.map(x=>'<td>'+esc(x===true?'※':x===false?'':x)+'</td>').join('')+'</tr>').join('')+'</tbody></table>';
+ const cases=[
+  ['駆け抜け',s=>s.startsWith('駆け抜け後')],
+  ['前回AT 200〜1000枚',s=>s.includes('前回AT枚数 200～1000枚')],
+  ['前回AT 1000枚以上',s=>s.includes('前回AT枚数1000枚以上')]
+ ];
+ const normalHtml='<h3 class="fr-title">通常</h3>'+cases.map(([name,match])=>{const cz=pick('cz_interval',match),at=pick('at_interval',match);return '<section class="ghoul-case ghoul-case-row"><h4>'+name+'</h4><div class="ghoul-case-tables"><div><b class="cz-head">CZ間</b>'+table(['差枚','開始'],czRows(cz),'cz-table')+'</div><div><b class="at-head">AT間</b>'+table(['スルー','CZ間','AT間',''],atRows(at),'at-table')+'</div></div></section>'}).join('');
+ const reset=kind=>text(resetRows.find(r=>r.strategy_type===kind)).replace(/^朝一(?:ゾーン：|AT：|\s*)/,'');
+ const morning='<h3 class="fr-title">朝一</h3><div class="ghoul-morning-grid"><section><b>CZ</b><p>'+esc(reset('cz_interval'))+'</p></section><section><b>ゾーン</b><p>'+esc(reset('zone'))+'</p></section><section><b>AT</b><p>'+esc(reset('at_interval'))+'</p></section></div>';
+ return normalHtml+morning;
 }
 function machine(ms,i){const m=ms.find(x=>x.machine_index===i);if(!m)return index(ms);let body;if(m.status==='LIVE_CHECK_REQUIRED')body='<div class="field-badge wait">LIVE確認待ち</div><p class="field-wait">最新Live確認前のため条件を推測表示しません。</p>';else if(m.status!=='SOURCE_FIXED_SUBSET')body='<div class="field-badge wait">SOURCE確認待ち</div><p class="field-wait">条件を推測表示しません。</p>';else{const rows=(m.profiles?.eq??[]),morning=rows.filter(x=>(x.predicates??[]).some(p=>p.field==='morning_state'&&p.value==='first')),normal=rows.filter(x=>!morning.includes(x));body='<div class="field-badge">等価・調査用</div>'+(m.legacy_rules?.length?ghoulTables(m.legacy_rules):(normal.length?'<h3 class="fr-title">通常</h3>'+genericTable(normal):'')+(morning.length?'<h3 class="fr-title">朝一</h3>'+genericTable(morning):''))}shell('<section class="field-machine-screen"><div class="field-head"><button id="fr-back">← 一覧</button><h2>'+esc(m.machine_name)+'</h2></div><div class="field-card">'+body+'</div></section>');document.querySelector('#fr-back').onclick=()=>index(ms)}
 async function open(){shell('<section class="panel"><p class="status">現場調査データを読み込み中…</p></section>');try{index(await load())}catch{shell('<section class="panel"><p class="error">現場調査データを安全に取得できません。条件は表示しません。</p><button id="fr-home">戻る</button></section>');document.querySelector('#fr-home').onclick=home}}
