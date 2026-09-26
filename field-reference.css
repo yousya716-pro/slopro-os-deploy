@@ -72,3 +72,6 @@
 
 /* Reduce dead vertical space while preserving case boundaries */
 .ghoul-normal{gap:6px!important}.ghoul-case{margin-bottom:6px!important;padding-bottom:4px!important}.ghoul-case>h4{padding-top:5px!important;padding-bottom:5px!important}.ghoul-cz-strip,.ghoul-at-strip{margin-top:4px!important;margin-bottom:0!important}.cz-head,.at-head{padding-top:3px!important;padding-bottom:3px!important}
+
+/* Horizontal case carousel: trade width for much lower vertical length */
+.ghoul-case-carousel{display:flex!important;gap:8px!important;overflow-x:auto!important;overflow-y:hidden!important;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;padding:0 2px 5px!important;align-items:flex-start!important}.ghoul-case-carousel>.ghoul-case{flex:0 0 470px!important;width:470px!important;max-width:none!important;scroll-snap-align:start;margin:0!important;box-sizing:border-box!important}.ghoul-case-carousel .at-matrix td{height:24px!important}.ghoul-case-carousel .cz-matrix td{height:23px!important}.ghoul-note span{color:#9fb5a9!important;font-size:.9em!important;font-weight:700!important}@media(max-width:390px){.ghoul-case-carousel>.ghoul-case{flex-basis:455px!important;width:455px!important}}
