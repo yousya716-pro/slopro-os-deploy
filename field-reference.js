@@ -33,8 +33,13 @@ function ghoulTables(rows){
  const reset=kind=>text(resetRows.find(r=>r.strategy_type===kind)).replace(/^朝一(?:ゾーン：|AT：|\s*)/,'');
  const zone=reset('zone').split('｜').map(x=>x.trim()).filter(Boolean);
  const rat=reset('at_interval').split('｜').map(x=>x.trim()).filter(Boolean);
- const mini=xs=>'<div class="morning-mini">'+xs.map(x=>'<div>'+esc(x)+'</div>').join('')+'</div>';
- const morning='<h3 class="fr-title">朝一</h3><div class="ghoul-morning-grid"><section><b>CZ</b><div class="morning-mini"><div>'+esc(reset('cz_interval'))+'</div></div></section><section><b>ゾーン</b>'+mini(zone)+'</section><section><b>AT</b>'+mini(rat)+'</section></div>';
+ const zoneRows=zone.map(x=>{const m=x.match(/^(\\d+スルー)\\s*前回(.+?)→(.+)$/);return m?[m[1],m[2],m[3]]:['',x,'']});
+ const atRowsMorning=rat.map(x=>{const m=x.match(/^(\\d+スルー(?:以降|～)?)\\s*(.+)$/);return m?[m[1],m[2]]:['',x]});
+ const morning='<h3 class="fr-title">朝一</h3><div class="morning-tables">'
+  +'<section class="morning-block morning-cz"><b>CZ</b><table><thead><tr><th>スルー</th><th>開始CZ間</th></tr></thead><tbody><tr><td>0スルー</td><td>20G〜</td></tr></tbody></table></section>'
+  +'<section class="morning-block morning-zone"><b>ゾーン</b><table><thead><tr><th>スルー</th><th>前回条件</th><th>狙いゾーン</th></tr></thead><tbody>'+zoneRows.map(x=>'<tr><td>'+esc(x[0])+'</td><td>'+esc(x[1])+'</td><td>'+esc(x[2])+'</td></tr>').join('')+'</tbody></table></section>'
+  +'<section class="morning-block morning-at"><b>AT</b><table><thead><tr><th>スルー</th><th>CZ間 → 必要AT間</th></tr></thead><tbody>'+atRowsMorning.map(x=>'<tr><td>'+esc(x[0])+'</td><td>'+esc(x[1])+'</td></tr>').join('')+'</tbody></table></section>'
+  +'</div>';
  return normalHtml+morning;
 }
 function drawer(ms,current){return '<aside id="fr-rail" class="fr-rail"><div class="fr-rail-list">'+ms.map(m=>'<button class="fr-rail-machine'+(m.machine_index===current?' active':'')+'" data-mi="'+m.machine_index+'" title="'+esc(m.machine_name)+'"><span>'+esc(m.machine_name)+'</span>'+(m.status==='LIVE_CHECK_REQUIRED'?'<i>•</i>':'')+'</button>').join('')+'</div></aside>'}
