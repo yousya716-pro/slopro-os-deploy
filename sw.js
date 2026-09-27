@@ -1,5 +1,5 @@
-const CACHE_NAME = 'slopro-public-shell-v46-semantic-cards';
-const FILES = ['./', './index.html', './styles.css', './decision-ui.css', './field-reference-rollout-v4.css', './config.js', './app-field-reference-v2.js',\n  './field-target-ui-v3.js', './manifest.webmanifest'];
+const CACHE_NAME = 'slopro-public-shell-v47-two-page-normal';
+const FILES = ['./', './index.html', './styles.css', './decision-ui.css', './field-reference-rollout-v5.css', './config.js', './app-field-reference-v2.js',\n  './field-target-ui-v4.js', './manifest.webmanifest'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(FILES)));
