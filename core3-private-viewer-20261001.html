@@ -3,16 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'sha256-5tmRBshCc30saE597z7nFLtvmPhxxCYT6Q1rO2r9PGo=' 'sha256-+M/iMsU2DR2Igp2izmqFWyzypVhUZ5EMeNmsvzYbRrg='; frame-src about:; connect-src 'none'; img-src 'none'; object-src 'none'; base-uri about:; form-action 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'sha256-5tmRBshCc30saE597z7nFLtvmPhxxCYT6Q1rO2r9PGo=' 'sha256-+M/iMsU2DR2Igp2izmqFWyzypVhUZ5EMeNmsvzYbRrg=' 'sha256-5eI+y/cqpY8B6fU7yD+gmuTrqpFWVBTCg9gtiZUXOtQ='; frame-src about:; connect-src 'none'; img-src 'none'; object-src 'none'; base-uri about:; form-action 'none'">
+<meta name="theme-color" content="#111819">
+<meta name="color-scheme" content="dark">
 <meta name="referrer" content="no-referrer">
 <title>重点3機種の非公開資料を表示</title>
-<link rel="stylesheet" href="./core3-private-viewer-20261001.css">
-<script src="./core3-field-viewer-20261001.js" defer></script>
+<link rel="stylesheet" href="./core3-field-viewer-20261001-v2.css">
+<script src="./core3-field-viewer-20261001-v2.js" defer></script>
 </head>
 <body>
 <header>
 <h1>重点3機種のカード確認</h1>
-<p>端末内の「カード画面.html」を選ぶとカードを表示します。</p>
+<p>端末内の「ダークカード画面.html」を選ぶとカードを表示します。</p>
 <label class="choose">検証ファイルを選ぶ<input id="report-file" type="file" accept=".html,text/html"></label>
 <button id="clear-report" type="button" hidden>資料を閉じる</button>
 <p id="viewer-status" role="status" aria-live="polite">ファイルは送信・保存しません。表示確認用です。</p>
