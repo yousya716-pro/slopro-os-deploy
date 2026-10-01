@@ -29,7 +29,7 @@ jobs:
           assert 'field-carousel-v25.css' not in html
           assert "'./field-reference-rollout-v6.css'" in sw
           assert "'./app-field-reference-v2.js'" in sw
-          assert "slopro-public-shell-v48-decision-first" in sw
+          assert "slopro-public-shell-v49-carousel-runtime-diagnostic" in sw
           assert "calc(66.6667% - 4px)" in css
           assert "scroll-snap-type:x mandatory" in css
           assert "scroll-snap-stop:normal" in css
