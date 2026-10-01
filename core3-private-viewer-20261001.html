@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'sha256-5tmRBshCc30saE597z7nFLtvmPhxxCYT6Q1rO2r9PGo='; frame-src about:; connect-src 'none'; img-src 'none'; object-src 'none'; base-uri about:; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<title>重点3機種の非公開資料を表示</title>
+<link rel="stylesheet" href="./core3-private-viewer-20261001.css">
+<script src="./core3-private-viewer-20261001.js" defer></script>
+</head>
+<body>
+<header>
+<h1>重点3機種の資料確認</h1>
+<p>端末内の「検証画面.html」を選ぶと条件表を表示します。</p>
+<label class="choose">検証ファイルを選ぶ<input id="report-file" type="file" accept=".html,text/html"></label>
+<button id="clear-report" type="button" hidden>資料を閉じる</button>
+<p id="viewer-status" role="status" aria-live="polite">ファイルは送信・保存しません。表示確認用です。</p>
+</header>
+<iframe id="report-frame" title="重点3機種の条件資料" sandbox="" referrerpolicy="no-referrer" hidden></iframe>
+</body>
+</html>
