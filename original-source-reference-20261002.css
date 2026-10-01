@@ -1,0 +1,27 @@
+/* Existing root PWA shell/34-machine rail remain authoritative. Source cards only. */
+.fr-original-source{color-scheme:dark;color:#eef7f1}
+.fr-original-source .conditions{width:100%;table-layout:fixed;border-collapse:collapse}
+.fr-original-source .conditions th,.fr-original-source .conditions td{border:1px solid #314039;padding:3px 2px;font-size:11px;line-height:1.2;white-space:pre-wrap;overflow-wrap:anywhere;vertical-align:middle}
+.fr-original-source .conditions th{font-size:9.5px;background:#1a241f;color:#bdc9c2}
+.fr-original-source .conditions th:last-child{width:40%}
+.fr-original-source .conditions .active-value{color:#d8ffe4;font-weight:800}
+.fr-original-source .context th{text-align:left;background:#16452e;font-size:11px}
+.fr-original-source h5{margin:4px 0 0;padding:4px 6px;background:#16452e;color:#d8ffe4;font-size:12px}
+.fr-original-source h5[data-source-axis="at"]{background:#173b60;color:#d8eaff}
+.fr-original-source .source-note{margin:3px 4px;white-space:pre-wrap;overflow-wrap:anywhere;font-size:11px}
+.fr-original-source .exchange-note{font-size:9px;margin:3px 4px;color:#9fb1a7}
+.fr-original-source .blank{color:#9fb1a7}
+.fr-original-source .hint-row{display:flex;gap:1px;border-top:1px solid #314039}
+.fr-original-source .hint-row>p{flex:1;min-width:0;margin:0;padding:5px 4px;font-size:11px;line-height:1.25;white-space:pre-wrap;overflow-wrap:anywhere}
+.fr-original-source .hint-row>p:last-child{font-weight:700}
+.fr-original-source .fr-fact>b{white-space:pre-wrap;overflow-wrap:anywhere}
+.fr-original-source .fr-fact>span{white-space:pre-wrap;overflow:visible;text-overflow:initial;overflow-wrap:anywhere;font-size:9px;line-height:1.2}
+.fr-original-source .fr-source-value>b{color:#d8ffe4}
+.fr-original-source .fr-target-card>h4{font-size:13px;padding:6px 8px}
+.fr-original-source .fr-source-expanded{border:1px solid #416b57;border-radius:5px;margin:5px 0;overflow:hidden;background:#0d1712}
+.fr-original-source .fr-source-expanded>h4{font-size:12px;background:#28553f;margin:0;padding:5px 6px}
+.fr-original-source .fr-source-context{grid-column:1/-1;margin:0}
+.fr-original-source .fr-source-priority{display:flex;gap:7px;align-items:baseline;margin:3px 0}
+.fr-original-source .fr-source-priority>strong{font-size:13px;font-weight:900}
+.fr-original-source .fr-source-priority>small{font-size:10px;color:#9fb1a7}
+.fr-original-source .fr-source-notes{font-size:11px}

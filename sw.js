@@ -1,5 +1,5 @@
-const CACHE_NAME = 'slopro-public-shell-v49-carousel-runtime-diagnostic';
-const FILES = ['./', './index.html', './styles.css', './decision-ui.css', './field-reference-rollout-v6.css', './config.js', './app-field-reference-v2.js',
+const CACHE_NAME = 'slopro-public-shell-v50-original-layout-source';
+const FILES = ['./', './index.html', './styles.css', './decision-ui.css', './field-reference-rollout-v6.css', './config.js', './app-original-layout-20261002.js', './original-source-reference-20261002.js', './original-source-reference-20261002.css',
   './field-target-ui-v5.js', './carousel-diagnostic-20261001.js', './carousel-diagnostic-20261001.css', './manifest.webmanifest'];
 
 self.addEventListener('install', (event) => {
