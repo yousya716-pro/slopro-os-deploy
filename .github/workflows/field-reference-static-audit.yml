@@ -29,7 +29,7 @@ jobs:
           assert 'field-carousel-v25.css' not in html
           assert "'./field-reference-rollout-v6.css'" in sw
           assert "'./app-original-layout-20261002.js'" in sw
-          assert "slopro-public-shell-v51-original-layout-density" in sw
+          assert "slopro-public-shell-v52-source-runtime-evidence" in sw
           assert "calc(66.6667% - 4px)" in css
           assert "scroll-snap-type:x mandatory" in css
           assert "scroll-snap-stop:normal" in css
@@ -39,7 +39,7 @@ jobs:
           app=Path("app-original-layout-20261002.js").read_text()
           assert "fr-rail-machine" in app and "pwa-field-reference-api" in app
           assert "__SLOPRO_ORIGINAL_SOURCE_REFERENCE__" in app
-          for asset in ["original-source-reference-20261002.js", "original-source-reference-20261002-dense.css"]:
+          for asset in ["original-source-reference-evidence-20261002.js", "carousel-source-diagnostic-20261002.js", "original-source-reference-20261002-dense.css"]:
               assert asset in html and asset in sw and Path(asset).is_file()
           assert "スルー" not in css, "decision/source text must not be hardcoded in presentation CSS"
           print("FIELD_REFERENCE_STATIC_AUDIT_OK")
