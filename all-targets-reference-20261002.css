@@ -1,0 +1,21 @@
+/* The accepted dark/dense CORE3 shell stays intact. */
+.at-reference-content{width:100%;min-width:0;flex:1 0 100%;box-sizing:border-box}
+.at-payment{font-size:10px;line-height:1.3;margin:2px 0 5px;padding:4px 5px;color:#ccddd5;background:#172b27;border-left:2px solid #589e88}
+.at-payment small{display:block;color:#93a69d;font-size:9px}
+.at-counts,.at-status-note{color:#afbbb5;font-size:10px;line-height:1.4;margin:4px 0}
+.at-index #at-search{font-size:16px;box-sizing:border-box;width:100%;padding:6px;margin:4px 0 7px;background:#15251f;color:#edf2ed;border:1px solid #496358;border-radius:4px}
+.at-index [hidden]{display:none!important}
+.at-index .field-machine-entry{padding:7px;font-size:12px}
+.at-index .field-machine-entry span{font-size:9px;color:#a9b9b0}
+.at-all-source{font-size:10px;line-height:1.3;overflow-wrap:anywhere}
+.at-all-source h3{font-size:12px;margin:8px 0 3px;padding:4px;background:#21463b;color:#deeee5}
+.at-all-source h4,.at-all-source h5{font-size:11px;margin:4px 0;padding:3px;background:#21382f;color:#d6e8df}
+.at-all-source p{margin:2px 0;white-space:pre-wrap}
+.at-source-block{margin:4px 0 7px}
+.at-all-source .conditions{width:100%;border-collapse:collapse;table-layout:fixed;font-size:10px}
+.at-all-source th,.at-all-source td{padding:3px;border:1px solid #354c43;white-space:pre-wrap;vertical-align:top}
+.at-all-source .active-value{color:#a9dcc7;font-weight:700}
+.at-all-source .hint-row,.at-raw-row{display:flex;align-items:stretch;border-bottom:1px solid #30473d;gap:3px;padding:2px 0}
+.at-all-source .hint-row p,.at-raw-row p{flex:1;min-width:0;padding:2px;white-space:pre-wrap}
+.at-raw-row .at-blank{color:#6a8076;flex:0 1 10px}
+.at-subset{border-bottom:1px solid #354c43;padding-bottom:4px}
