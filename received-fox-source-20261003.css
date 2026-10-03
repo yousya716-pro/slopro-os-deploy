@@ -1,0 +1,16 @@
+/* Source values remain supplied after authorization. Keep CORE3 and map CSS intact. */
+.at-source-table-scroll{overflow-x:auto;width:100%;max-width:100%;margin:3px 0}
+.at-source-table-scroll .conditions{width:100%;min-width:100%;table-layout:fixed}
+.at-source-table-scroll .conditions th{width:auto}
+.at-source-table-scroll .conditions th:last-child{width:112px}
+.at-columns-3 .conditions{width:332px;min-width:332px}
+.at-columns-4 .conditions{width:442px;min-width:442px}
+.at-wide-source-table .conditions{width:min(540px,200%);min-width:100%}
+.at-source-table-scroll thead th:last-child,.at-source-table-scroll .active-value{position:sticky;right:0;background:#172a21;box-shadow:-1px 0 #354c43}
+.at-comment-table td{padding:3px 4px;white-space:pre-wrap;overflow-wrap:anywhere;vertical-align:top;text-align:left}
+.at-comment-columns-2 .conditions{width:100%;min-width:100%}
+.at-comment-columns-3 .conditions{width:100%;min-width:100%}
+.at-comment-columns-4 .conditions{width:442px;min-width:442px}
+.at-comment-columns-5 .conditions,.at-comment-columns-6 .conditions{width:min(540px,200%);min-width:100%}
+.at-source-block .fr-target-card{margin:3px 0;padding:3px}
+.at-comment-lines p{margin:0;padding:2px 4px;border-bottom:1px solid #314039;white-space:pre-wrap;overflow-wrap:anywhere;text-align:left;font-size:11px;line-height:1.2}
