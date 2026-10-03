@@ -1,0 +1,88 @@
+/* Protected Source supplied after authorization; compact presentation only. */
+.at-all-source .at-source-block{margin:3px 0}
+.at-all-source .at-source-block>h3{margin:0;padding:2px 4px;font-size:11px;line-height:1.1;background:#203c32;color:#e5f7ed}
+.at-all-source .at-source-block .fr-target-card{margin:0 0 2px;padding:0;border:0;border-radius:0;overflow:visible}
+.at-all-source .fox-target-table{margin:0;width:100%;table-layout:fixed;border-collapse:collapse;font-size:10px}
+.at-all-source .fox-target-table .fox-condition-col{width:auto}
+.at-all-source .fox-target-table .fox-start-col{width:var(--fox-start-width,96px)}
+.at-all-source .fox-target-table th,.at-all-source .fox-target-table td{padding:1px 6px 1px 3px;font-size:10px;line-height:1.1;border:1px solid #35473e;white-space:break-spaces;overflow-wrap:anywhere;line-break:anywhere;word-break:break-all;text-align:left;vertical-align:middle;font-weight:400}
+.at-all-source .fox-target-table thead th{width:auto;padding:1px 3px;font-size:9px;font-weight:500;color:#aebeb5;background:#14231c}
+.at-all-source .fox-target-table .fox-start-value{color:#d6ffe3;font-weight:800;background:#142b20}
+.at-all-source .fox-target-table .fox-context-row>th{background:#193c2a;color:#d4e9dc;font-weight:700}
+.at-all-source .fox-target-table .fox-note-row>td{color:#d8e0dc;background:#111c16}
+.at-all-source .fox-target-table .fox-value-row>td{color:#d6ffe3;font-weight:700;background:#142b20}
+.at-all-source .fox-source-origin{margin-top:6px;color:#99aaa0}
+.at-all-source .fox-source-origin h3{font-size:10px;margin:0}
+.at-all-source .fox-source-origin p{font-size:9px;line-height:1.1;margin:1px 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.at-reference-content .at-payment{padding:2px 3px;font-size:9px;line-height:1.1;margin:0 0 2px}
+.at-reference-content .at-payment small{display:block;font-size:8px;line-height:1.1}
+.at-all-source .field-ref-badge{margin:0 0 2px;font-size:9px;padding:2px 3px;line-height:1.1}
+
+/* Override legacy last-column percentages on the explicit compact table only. */
+.at-all-source .fox-target-table thead th:last-child{width:auto}
+
+.at-all-source .fox-space-tables .fox-target-table+.fox-target-table{margin-top:-1px}
+
+.at-all-source .fox-space-tables .fox-start-56{--fox-start-width:56px}
+.at-all-source .fox-space-tables .fox-start-64{--fox-start-width:64px}
+.at-all-source .fox-space-tables .fox-start-72{--fox-start-width:72px}
+.at-all-source .fox-space-tables .fox-start-80{--fox-start-width:80px}
+.at-all-source .fox-space-tables .fox-start-88{--fox-start-width:88px}
+.at-all-source .fox-space-tables .fox-start-96{--fox-start-width:96px}
+
+/* Current supplied Source only. Semantic categories supplement visible labels. */
+.fox-quick-reference{margin:0 0 8px;color:#e5f0e9;font-size:10px}
+.fox-quick-reference h3{margin:4px 0;padding:4px 6px;font-size:12px;line-height:1.2;background:#183e2c;border-left:3px solid #65d7a0}
+.fox-quick-exchange-label{font-size:9px;color:#b3cabe;margin:2px 0}
+.fox-quick-premise{font-size:9px;color:#d6c593;margin:3px 0}
+.fox-quick-premise p{margin:0;line-height:1.2}
+.fox-quick-cards{display:flex;flex-wrap:wrap;align-items:flex-start;gap:4px}
+.fox-quick-card{width:100%;min-width:0;border:1px solid #3c6652;border-radius:5px;overflow:hidden;background:#0e1813;margin:0 0 3px}
+.fox-quick-card h4,.fox-quick-card h5{margin:0;padding:4px 5px;font-size:11px;line-height:1.2;color:#ecfff2;background:#245b41;font-weight:700;overflow-wrap:anywhere}
+.fox-quick-card h5{font-size:10px;padding:3px 5px}
+.fox-quick-at{border-color:#405c7c}
+.fox-quick-at h5{background:#1d456f;color:#e7f1ff}
+.fox-quick-table{width:100%;margin:0;border-collapse:collapse;table-layout:auto;font-size:10px;line-height:1.15}
+.fox-quick-table th,.fox-quick-table td{padding:3px 3px;border:1px solid #2f4439;vertical-align:middle;text-align:left;overflow-wrap:anywhere;white-space:pre-wrap}
+.fox-quick-table th{font-size:9px;font-weight:400;color:#b0c2b7;background:#1a2b22}
+.fox-quick-table td{font-size:10px;font-weight:600}
+.fox-quick-table th:last-child,.fox-quick-table td:last-child{width:26%;font-weight:800;color:#d4ffe4}
+.fox-quick-at .fox-quick-table th:last-child,.fox-quick-at .fox-quick-table td:last-child{color:#c7e3ff}
+.fox-quick-notes{padding:3px 5px;color:#dcc98e;font-size:9px}
+.fox-quick-notes p{margin:1px 0;line-height:1.2;white-space:pre-wrap;overflow-wrap:anywhere}
+.fox-quick-scroll{overflow-x:auto;max-width:100%;-webkit-overflow-scrolling:touch}
+.fox-quick-cols-5,.fox-quick-cols-6{min-width:100%}
+.fox-raw-heading{margin:6px 0 3px;font-size:11px;color:#aebcb3;border-top:1px solid #40564a;padding-top:5px}
+.fox-quick-case-list{width:100%;min-width:0}
+.fox-quick-case>h4{margin:0;padding:4px 5px;font-size:11px;line-height:1.2;background:#285940;color:#e5faee;border-radius:4px 4px 0 0;overflow-wrap:anywhere}
+.fox-quick-carousel{display:flex;gap:5px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;align-items:flex-start}
+.fox-quick-carousel .fox-quick-case{flex:0 0 200px;width:200px;min-width:0;scroll-snap-align:start}
+.fox-quick-or{color:#e5bb65;font-weight:800}
+/* Reset the shell's global th=68%; all quick-table columns get explicit widths. */
+.fox-quick-table{table-layout:fixed}
+.fox-quick-table th,.fox-quick-table td{width:auto;word-break:normal;line-break:normal}
+.fox-quick-table th:last-child,.fox-quick-table td:last-child{width:30%}
+.fox-quick-cols-1 th:last-child,.fox-quick-cols-1 td:last-child{width:100%}
+.fox-quick-cols-2 th:first-child{width:62%}
+.fox-quick-cols-2 th:last-child{width:38%}
+.fox-quick-cols-3 th:first-child{width:24%}
+.fox-quick-cols-3 th:nth-child(2){width:36%}
+.fox-quick-cols-3 th:last-child{width:40%}
+.fox-quick-cols-4 th{width:25%}
+.fox-quick-cols-5,.fox-quick-cols-6{min-width:285px}
+.fox-quick-cols-5 th:first-child{width:27%}
+.fox-quick-cols-5 th:nth-child(2){width:25%}
+.fox-quick-cols-5 th:nth-child(3){width:12%}
+.fox-quick-cols-5 th:nth-child(4){width:14%}
+.fox-quick-cols-5 th:last-child{width:22%}
+.fox-quick-cols-6 th:first-child{width:25%}
+.fox-quick-cols-6 th:nth-child(2){width:25%}
+.fox-quick-cols-6 th:nth-child(3){width:10%}
+.fox-quick-cols-6 th:nth-child(4){width:12%}
+.fox-quick-cols-6 th:nth-child(5){width:10%}
+.fox-quick-cols-6 th:last-child{width:18%}
+.fox-quick-context{margin:0;padding:2px 5px;background:#14261c;color:#c5d7cd;font-size:9px;border-bottom:1px solid #354b3e}
+.fox-quick-table th,.fox-quick-table td{line-break:anywhere;word-break:break-all;tab-size:1}
+.fox-quick-table th,.fox-quick-table td{white-space:break-spaces}
+
+.fox-quick-table th,.fox-quick-table td{padding-right:6px}

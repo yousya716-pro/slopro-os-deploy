@@ -29,7 +29,7 @@ jobs:
           assert 'field-carousel-v25.css' not in html
           assert "'./field-reference-rollout-v6.css'" in sw
           assert "'./app-received-fox-20261003.js'" in sw
-          assert "slopro-public-shell-v61-fox-target-space" in sw
+          assert "slopro-public-shell-v62-fox-quick-reference" in sw
           assert "calc(66.6667% - 4px)" in css
           assert "scroll-snap-type:x mandatory" in css
           assert "scroll-snap-stop:normal" in css
@@ -41,14 +41,14 @@ jobs:
           assert "__SLOPRO_ORIGINAL_SOURCE_REFERENCE__" in app
           assert "catalog_version:4" in app
           assert "include_store_maps:true" in app
-          for asset in ["fox-target-space-20261003.css", "four-store-maps-header-compact-20261003.js", "four-store-maps-header-compact-20261003.css", "patrol-ceiling-20261002.css"]:
+          for asset in ["fox-quick-reference-20261003.css", "four-store-maps-header-compact-20261003.js", "four-store-maps-header-compact-20261003.css", "patrol-ceiling-20261002.css"]:
               assert asset in html and asset in sw and Path(asset).is_file()
           map_images=list(Path(".").glob("fourmaps-*-20261002.jpg"))
           assert len(map_images)==12
           assert all("./"+p.name in sw for p in map_images)
-          for asset in ["fox-target-space-20261003.css", "received-fox-source-20261003.css", "all-targets-fox-space-20261003.js", "all-targets-reference-20261002.css"]:
+          for asset in ["fox-quick-reference-20261003.css", "received-fox-source-20261003.css", "all-targets-fox-quick-20261003.js", "all-targets-reference-20261002.css"]:
               assert asset in html and asset in sw and Path(asset).is_file()
-          for asset in ["fox-target-space-20261003.css", "original-source-reference-received-fox-20261003.js", "carousel-source-diagnostic-20261002.js", "original-source-reference-20261002-dense.css"]:
+          for asset in ["fox-quick-reference-20261003.css", "original-source-reference-received-fox-20261003.js", "carousel-source-diagnostic-20261002.js", "original-source-reference-20261002-dense.css"]:
               assert asset in html and asset in sw and Path(asset).is_file()
           assert "スルー" not in css, "decision/source text must not be hardcoded in presentation CSS"
           print("FIELD_REFERENCE_STATIC_AUDIT_OK")
