@@ -31,16 +31,18 @@ jobs:
           assert 'field-carousel-v25.css' not in html
           assert "'./field-reference-rollout-v6.css'" in sw
           assert "'./app-sheet-priority-20261004.js'" in sw
-          assert "slopro-public-shell-v72-morning-postplay" in sw
+          assert "slopro-public-shell-v73-morning-opening" in sw
           assert "calc(66.6667% - 4px)" in css
           assert "scroll-snap-type:x mandatory" in css
           assert "scroll-snap-stop:normal" in css
           assert "touch-action:pan-x pan-y" in css
           assert ".fr-morning" in css and ".at-matrix" in css
           assert ".fr-rail-machine" in css and ".field-machine-main" in css
-          for asset in ["morning-postplay-20261005.css", "morning-postplay-20261005.js"]:
+          for asset in ["morning-postplay-20261005.css", "morning-opening-20261005.js"]:
               assert asset in html and asset in sw and Path(asset).is_file()
-          for asset in ["morning-postplay-20261005.css", "morning-postplay-20261005.js"]:
+          for asset in ["morning-postplay-20261005.css", "morning-opening-20261005.js"]:
+              assert asset in html and asset in sw and Path(asset).is_file()
+          for asset in ["morning-postplay-20261005.css", "morning-opening-20261005.js"]:
               assert asset in html and asset in sw and Path(asset).is_file()
           app=Path("app-sheet-priority-20261004.js").read_text()
           assert "fr-rail-machine" in app and "pwa-field-reference-api" in app
