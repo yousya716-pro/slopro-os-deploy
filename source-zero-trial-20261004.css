@@ -1,0 +1,113 @@
+/* All aim categories and table columns stay in the single vertical reading flow. */
+.at-reference-content .fr-normal-pages,
+.at-reference-content .fr-carousel,
+.at-reference-content .fox-quick-carousel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: 5px;
+  overflow: visible;
+  scroll-snap-type: none;
+}
+.at-reference-content .fr-normal-page,
+.at-reference-content .fr-carousel > .fr-case,
+.at-reference-content .fox-quick-carousel > .fox-quick-case {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  padding-left: 0;
+  box-sizing: border-box;
+  scroll-snap-align: none;
+}
+.at-reference-content .at-source-table-scroll,
+.at-reference-content .fox-quick-scroll {
+  overflow: visible;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+.at-reference-content .fr-original-source table.conditions,
+.at-reference-content .fox-quick-table {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  table-layout: fixed;
+  box-sizing: border-box;
+}
+.at-reference-content .fr-original-source .conditions th,
+.at-reference-content .fr-original-source .conditions td {
+  width: auto;
+  position: static;
+  white-space: break-spaces;
+  tab-size: 1;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  text-align: left;
+  padding: 3px;
+  box-shadow: none;
+}
+.at-reference-content .fr-original-source .conditions thead th:last-child {
+  width: 28%;
+}
+.at-reference-content .at-columns-4 .conditions thead th:last-child {
+  width: 25%;
+}
+.at-reference-content .fr-original-source[data-machine="3"] .fr-normal-page:nth-child(2) .fr-target-card-title {
+  background: #173b60;
+  color: #d8eaff;
+}
+
+/* All Source tables share one reading flow, including fallback and supplemental tables. */
+.source-reading table.conditions, .source-reading .fox-quick-table {
+  width:100%; min-width:0; max-width:100%; table-layout:fixed;
+}
+.source-reading .conditions th, .source-reading .conditions td,
+.source-reading .fox-quick-table th, .source-reading .fox-quick-table td {
+  position:static; white-space:break-spaces; overflow-wrap:anywhere;
+  box-shadow:none; text-align:left; padding:2px 3px; vertical-align:middle;
+}
+.source-reading .conditions .blank { color:transparent; }
+.source-reading .source-reading-facts { margin:0; border-collapse:collapse; }
+.source-reading .source-reading-facts th { background:#192a22; color:#acbab2; font-size:8.5px; font-weight:500; }
+.source-reading .source-reading-facts td { font-size:10px; font-weight:700; }
+.source-reading .source-reading-facts td.active-value { background:#173426; color:#bbefd2; }
+.source-reading .source-reading-subheading { margin:3px 0 0; padding:3px 4px; background:#234e39; font-size:11px; line-height:1.15; }
+.source-reading .source-reading-background { margin:6px 0 0; font-size:9px; color:#afbbb5; }
+.source-reading .source-reading-background h3 { margin:0; padding:3px; font-size:10px; background:#20342a; }
+.source-reading .source-reading-background .field-ref-badge { font-size:9px; }
+.source-reading .source-reading-exchange { margin:0 0 3px; padding:2px 3px; font-size:9px; color:#afc8b9; }
+.source-reading .at-source-table-scroll, .source-reading .fox-quick-scroll,
+.source-reading .fr-target-card, .source-reading .fr-case,
+.source-reading .fox-quick-card, .source-reading .fr-source-expanded {
+  max-height:none; height:auto; overflow:visible; min-width:0;
+}
+
+.source-calculation-limited { background:#3b3d3c!important; border-color:#717775!important; color:#d4d8d6!important; }
+.source-calculation-limited.active { border-color:#aab9b0!important; box-shadow:inset 3px 0 #aab9b0!important; }
+.source-calculation-label { display:block; font-size:8px; font-weight:500; line-height:1.15; color:#d4d8d6; white-space:normal; }
+.fr-rail-machine.source-calculation-limited { height:auto; min-height:29px; padding-top:4px; padding-bottom:4px; }
+.source-calculation-notice { margin:0 0 3px; padding:3px 4px; background:#303735; border-left:3px solid #8f9b95; color:#d4ded8; font-size:9px; line-height:1.2; }
+.source-calculation-notice p { margin:1px 0 0; white-space:pre-wrap; overflow-wrap:anywhere; }
+
+.source-reading .source-reading-meta-single { display:block; }
+.source-reading .source-reading-meta-single .at-blank { display:none; }
+.source-reading .source-reading-meta-single p { margin:1px 0; width:100%; white-space:pre-wrap; overflow-wrap:anywhere; }
+.at-reference-content.source-reading .fr-original-source .source-reading-facts thead th:last-child { width:32%; }
+.at-reference-content.source-reading .fr-original-source .source-reading-facts td { line-break:anywhere; word-break:break-all; }
+.at-reference-content.source-reading .fox-quick-table td,
+.at-reference-content.source-reading .fox-quick-table td span {
+  white-space:pre-wrap; line-break:anywhere; word-break:break-all;
+}
+.at-reference-content.source-reading .fox-quick-table th,
+.at-reference-content.source-reading .fox-quick-table td { padding-right:6px; }
+
+/* Trial shortlist preserves mode, case, exchange and all Source notes. */
+.zero-start-trial { margin:0 0 6px; padding:3px; border:1px solid #c6a559; border-left:3px solid #e4bf68; background:#211f16; }
+.source-reading .zero-start-trial > h3 { margin:0 0 3px; background:#65512a; color:#fff0bf; padding:3px 4px; font-size:11px; }
+.source-reading .zero-start-trial .zero-start-section > h3 { background:#3d3521; color:#f4dd9a; font-size:10px; }
+.source-reading .zero-start-trial .zero-start-row td { background:#403820; color:#ffe6a7; }
+.source-reading .zero-start-trial .zero-start-row td.active-value,
+.source-reading .zero-start-trial .zero-start-row [data-quick-result],
+.source-reading .zero-start-trial .zero-start-row td.fox-start-value { background:#60502c; color:#fff0b5; }
+.source-reading .zero-start-context-label { margin:2px 0; font-size:8px; color:#d2bd84; }
+.source-reading .zero-start-trial .fr-target-card,.source-reading .zero-start-trial .fr-case { border-color:#65512a; }
