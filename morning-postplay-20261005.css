@@ -1,0 +1,56 @@
+.morning-home-entry { margin-top:8px; border-color:#c7ac68; }
+.morning-screen { display:grid; grid-template-columns:64px minmax(0,1fr); gap:5px; align-items:start; }
+.morning-rail { position:sticky; top:4px; max-height:calc(100dvh - 8px); overflow-y:auto; }
+.morning-rail section { margin:0 0 7px; }
+.morning-rail button { width:100%; min-height:30px; padding:4px 2px; border-radius:4px; font-size:9px; line-height:1.25; margin:0 0 2px; }
+.morning-rail .morning-store { min-height:34px; background:#24382f; font-weight:bold; }
+.morning-rail .morning-floor { background:#111b16; color:#becac2; }
+.morning-rail .active { background:#245e45; border-color:#74d7a6; color:#fff; }
+.morning-main { min-width:0; }
+.morning-heading { display:flex; gap:4px; align-items:center; margin:0 0 5px; }
+.morning-heading h2 { font-size:15px; margin:0 0 0 auto; white-space:nowrap; }
+.morning-heading button { width:auto; flex:0 0 auto; font-size:10px; padding:5px; min-height:30px; }
+.fm-heading > [data-morning-open] { width:auto; flex:0 0 auto; }
+.morning-location { font-size:12px; margin:0; background:#1b3629; padding:5px; }
+.morning-location b { float:right; font-size:10px; }
+.morning-assumption { font-size:9px; color:#dfc784; margin:4px 0 6px; line-height:1.4; }
+.morning-machine { border:1px solid #4c705d; border-radius:5px; overflow:visible; margin:0 0 7px; }
+.morning-machine > h3 { margin:0; padding:4px 5px; background:#315d47; display:flex; gap:4px; align-items:center; font-size:12px; }
+.morning-machine > h3 button { border:0; padding:0; min-height:0; line-height:1.3; background:none; font-size:inherit; text-align:left; font-weight:bold; min-width:0; overflow-wrap:anywhere; }
+.morning-machine > h3 small { font-size:8px; color:#eee1b5; }
+.morning-limited > h3 { background:#484c49; }
+.morning-content { padding:3px 4px 4px; font-size:10px; line-height:1.3; }
+.morning-content section,.morning-content article { margin:0 0 3px; padding:0; min-width:0; width:auto; border:0; }
+.morning-content h4,.morning-content h5 { font-size:10px; margin:3px 0 2px; padding:3px; background:#204e39; }
+.morning-content [data-source-axis="at"],.morning-content .fox-quick-at h5 { background:#1e4665; }
+.morning-content p { font-size:10px; margin:2px 0; white-space:break-spaces; overflow-wrap:anywhere; line-break:anywhere; word-break:break-all; }
+.morning-content .exchange-note,.morning-content .fox-quick-exchange-label { font-size:8px; color:#b8c8bd; }
+.morning-content table { table-layout:fixed; width:100%; min-width:0!important; margin:3px 0; }
+.morning-content td,.morning-content th { font-size:10px; padding:3px 2px; text-align:left; white-space:break-spaces; overflow-wrap:anywhere; line-break:anywhere; word-break:break-all; vertical-align:top; }
+.morning-content thead th { font-size:8px; color:#b8c8bd; font-weight:normal; }
+.morning-content .active-value,.morning-content [data-quick-result] { color:#b6efca; font-weight:bold; background:#162e22; }
+.morning-content .hint-row { display:flex; gap:3px; }
+.morning-content .hint-row > p { flex:1; min-width:0; border-bottom:1px solid #344b3d; padding:3px 8px 3px 1px; }
+.morning-content .at-source-table-scroll,.morning-content .fox-quick-scroll,.morning-content .fox-quick-case-list { overflow:visible!important; height:auto!important; max-height:none!important; display:block!important; }
+.morning-content .fox-quick-case { width:100%!important; flex:none!important; }
+.morning-unknown { padding:5px; margin:6px 0; border:1px solid #3b4941; color:#bec8c1; }
+.morning-unknown h3 { font-size:10px; margin:0 0 4px; }
+.morning-unknown p { display:flex; gap:3px; flex-wrap:wrap; margin:0; }
+.morning-unknown button { font-size:9px; padding:3px; }
+.morning-unknown small,.morning-footer { font-size:8px; line-height:1.4; }
+.morning-footer { color:#a6b5ac; padding:5px 0; }
+.morning-content td.morning-zero { color:#ffe1a0; background:#41391f; }
+.morning-shared-notes { color:#b9c4bd; margin-top:4px; font-size:9px; }
+.morning-shared-notes summary { cursor:pointer; padding:3px 0; }
+
+.morning-rail .morning-zero-entry { background:#4a3c1d; color:#ffe2a0; border:2px solid #bda15f; font-weight:bold; min-height:42px; margin-bottom:7px; }
+.morning-rail .morning-zero-entry.active { background:#755e2b; }
+.morning-zero-machine { border-color:#bda15f; }
+.morning-zero-machine > h3 { border-left:3px solid #d8b968; }
+.morning-machine .morning-zero-label { color:#ffe2a0; flex:0 0 auto; font-size:8px; }
+.morning-zero-floor > h3 { margin:7px 0 4px; }
+.morning-zero-floor > h3 button { width:auto; font-size:11px; padding:3px 5px; min-height:25px; }
+.source-postplay-supplement { margin-top:10px; border-top:1px solid #506052; }
+.source-reading .source-postplay-supplement > h3 { background:#303c35; font-size:12px; padding:5px; }
+.source-postplay-group { margin:4px 0; }
+.source-reading .source-postplay-group > h4 { font-size:10px; color:#aebeb3; margin:4px 0; }
