@@ -1,0 +1,84 @@
+/* All aim categories and table columns stay in the single vertical reading flow. */
+.at-reference-content .fr-normal-pages,
+.at-reference-content .fr-carousel,
+.at-reference-content .fox-quick-carousel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: 5px;
+  overflow: visible;
+  scroll-snap-type: none;
+}
+.at-reference-content .fr-normal-page,
+.at-reference-content .fr-carousel > .fr-case,
+.at-reference-content .fox-quick-carousel > .fox-quick-case {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  padding-left: 0;
+  box-sizing: border-box;
+  scroll-snap-align: none;
+}
+.at-reference-content .at-source-table-scroll,
+.at-reference-content .fox-quick-scroll {
+  overflow: visible;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+.at-reference-content .fr-original-source table.conditions,
+.at-reference-content .fox-quick-table {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  table-layout: fixed;
+  box-sizing: border-box;
+}
+.at-reference-content .fr-original-source .conditions th,
+.at-reference-content .fr-original-source .conditions td {
+  width: auto;
+  position: static;
+  white-space: break-spaces;
+  tab-size: 1;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  text-align: left;
+  padding: 3px;
+  box-shadow: none;
+}
+.at-reference-content .fr-original-source .conditions thead th:last-child {
+  width: 28%;
+}
+.at-reference-content .at-columns-4 .conditions thead th:last-child {
+  width: 25%;
+}
+.at-reference-content .source-aim-nav {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+  margin: 0 0 4px;
+}
+.at-reference-content .source-aim-nav button {
+  min-height: 28px;
+  margin: 0;
+  padding: 4px;
+  font-size: 10px;
+  line-height: 1.2;
+  border: 1px solid #416b57;
+  border-radius: 4px;
+  background: #193c2a;
+  color: #e4f7ec;
+  overflow-wrap: anywhere;
+}
+.at-reference-content .source-aim-nav button:nth-child(2) {
+  border-color: #405c7c;
+  background: #173b60;
+  color: #d8eaff;
+}
+.at-reference-content [id^="source-normal-"] {
+  scroll-margin-top: 4px;
+}
+.at-reference-content .fr-original-source[data-machine="3"] .fr-normal-page:nth-child(2) .fr-target-card-title {
+  background: #173b60;
+  color: #d8eaff;
+}

@@ -22,6 +22,8 @@ jobs:
           assert chr(92)+"n" not in html, "literal backslash-n found in index.html"
           assert '<link rel="stylesheet" href="./field-reference-rollout-v6.css">' in html
           assert '<script src="./app-sheet-priority-20261004.js"></script>' in html
+          assert '<script src="./source-flow-20261004.js"></script>' in html
+          assert '<link rel="stylesheet" href="./source-flow-20261004.css">' in html
           assert '<script src="./field-target-ui-v5.js"></script>' in html
           assert "'./field-target-ui-v5.js'" in sw
           assert 'field-reference-v5.js' not in html
@@ -29,7 +31,7 @@ jobs:
           assert 'field-carousel-v25.css' not in html
           assert "'./field-reference-rollout-v6.css'" in sw
           assert "'./app-sheet-priority-20261004.js'" in sw
-          assert "slopro-public-shell-v66-sheet-priority" in sw
+          assert "slopro-public-shell-v67-source-flow" in sw
           assert "calc(66.6667% - 4px)" in css
           assert "scroll-snap-type:x mandatory" in css
           assert "scroll-snap-stop:normal" in css
