@@ -29,7 +29,7 @@ jobs:
           assert 'field-carousel-v25.css' not in html
           assert "'./field-reference-rollout-v6.css'" in sw
           assert "'./app-floor-filter-20261003.js'" in sw
-          assert "slopro-public-shell-v64-floor-resolution" in sw
+          assert "slopro-public-shell-v65-vegas-number-floor" in sw
           assert "calc(66.6667% - 4px)" in css
           assert "scroll-snap-type:x mandatory" in css
           assert "scroll-snap-stop:normal" in css
@@ -41,7 +41,7 @@ jobs:
           assert "__SLOPRO_ORIGINAL_SOURCE_REFERENCE__" in app
           assert "catalog_version:4" in app
           assert "include_store_maps:true" in app
-          for asset in ["fox-quick-reference-20261003.css", "four-store-maps-floor-resolution-20261004.js", "four-store-maps-header-compact-20261003.css", "patrol-ceiling-20261002.css"]:
+          for asset in ["fox-quick-reference-20261003.css", "four-store-maps-number-floor-20261004.js", "four-store-maps-header-compact-20261003.css", "patrol-ceiling-20261002.css"]:
               assert asset in html and asset in sw and Path(asset).is_file()
           map_images=list(Path(".").glob("fourmaps-*-20261002.jpg"))
           assert len(map_images)==12
