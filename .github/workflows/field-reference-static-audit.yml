@@ -31,18 +31,18 @@ jobs:
           assert 'field-carousel-v25.css' not in html
           assert "'./field-reference-rollout-v6.css'" in sw
           assert "'./app-sheet-priority-20261004.js'" in sw
-          assert "slopro-public-shell-v76-source-reference-overview" in sw
+          assert "slopro-public-shell-v77-source-reference-single" in sw
           assert "calc(66.6667% - 4px)" in css
           assert "scroll-snap-type:x mandatory" in css
           assert "scroll-snap-stop:normal" in css
           assert "touch-action:pan-x pan-y" in css
           assert ".fr-morning" in css and ".at-matrix" in css
           assert ".fr-rail-machine" in css and ".field-machine-main" in css
-          for asset in ["morning-postplay-20261005.css", "source-reference-overview-20261011.js"]:
+          for asset in ["morning-postplay-20261005.css", "source-reference-single-20261011.js"]:
               assert asset in html and asset in sw and Path(asset).is_file()
-          for asset in ["morning-postplay-20261005.css", "source-reference-overview-20261011.js"]:
+          for asset in ["morning-postplay-20261005.css", "source-reference-single-20261011.js"]:
               assert asset in html and asset in sw and Path(asset).is_file()
-          for asset in ["morning-postplay-20261005.css", "source-reference-overview-20261011.js"]:
+          for asset in ["morning-postplay-20261005.css", "source-reference-single-20261011.js"]:
               assert asset in html and asset in sw and Path(asset).is_file()
           assert "morning-opening-ev-20261005.css" in html and "morning-opening-ev-20261005.css" in sw and Path("morning-opening-ev-20261005.css").is_file()
           assert "source-reference-links-20261011.css" in html and "source-reference-links-20261011.css" in sw and Path("source-reference-links-20261011.css").is_file()
