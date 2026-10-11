@@ -1,0 +1,4 @@
+.source-reference-links { display:flex; flex-wrap:wrap; justify-content:flex-end; align-items:center; gap:4px; box-sizing:border-box; width:100%; padding:0 2px; margin:0 0 2px; }
+.source-reference-links a { display:inline-flex; align-items:center; justify-content:center; min-height:24px; padding:0 5px; box-sizing:border-box; color:#a8c3b3; font-size:9px; font-weight:400; line-height:1.2; text-decoration:underline; text-underline-offset:2px; white-space:nowrap; }
+.source-reference-links a:hover { color:#d0eadb; }
+.source-reference-links a:focus-visible { outline:2px solid #e9cf7a; outline-offset:2px; }
