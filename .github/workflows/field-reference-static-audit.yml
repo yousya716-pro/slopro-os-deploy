@@ -16,6 +16,16 @@ jobs:
           test -f sw.js
           python3 - <<'PY'
           from pathlib import Path
+          import json
+          feed=json.loads(Path("vegas-number-floor-current.json").read_bytes())
+          assert feed["schema"]=="SLOPRO_VEGAS_NUMBER_FLOOR_CURRENT_V1"
+          assert set(feed)=={"schema","store_id","provider","scope","report_date","checked_at_utc","source_url","number_count","models","current_on_site_verified"}
+          assert feed["store_id"]=="shinjuku_southeast" and feed["provider"]=="SLO_NAVI"
+          assert feed["scope"]=="46_OWNER_NUMBER_REFERENCE" and feed["current_on_site_verified"] is False
+          rows=[r for m in feed["models"] for r in m["numbers"]]
+          assert len(rows)==len({r["number"] for r in rows})==feed["number_count"]==446
+          assert all(set(m)=={"public_name","machine_index","model_id","numbers"} for m in feed["models"])
+          assert all(set(r)=={"number","floor_id"} for r in rows)
           html=Path("index.html").read_text()
           sw=Path("sw.js").read_text()
           css=Path("field-reference-rollout-v6.css").read_text()
@@ -31,7 +41,7 @@ jobs:
           assert 'field-carousel-v25.css' not in html
           assert "'./field-reference-rollout-v6.css'" in sw
           assert "'./app-sheet-priority-20261004.js'" in sw
-          assert "slopro-public-shell-v77-source-reference-single" in sw
+          assert "slopro-public-shell-v78-vegas-daily-floor" in sw
           assert "calc(66.6667% - 4px)" in css
           assert "scroll-snap-type:x mandatory" in css
           assert "scroll-snap-stop:normal" in css
