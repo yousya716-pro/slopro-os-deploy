@@ -40,6 +40,15 @@ jobs:
           assert set(other)=={"schema","stores"} and other["schema"]=="SLOPRO_OTHER_STORE_NUMBER_FLOORS_V1"
           assert [s["number_count"] for s in other["stores"]]==[749,269,240]
           assert all(r["floor_id"] is None for m in other["stores"][2]["models"] for r in m["numbers"])
+          import base64,hashlib
+          images=list(Path("floor-images").glob("*.json"))
+          assert {p.stem for p in images}==set(["kabuki-b1","kabuki-2","kabuki-3","kabuki-4","kabuki-new2","seibu-3","seibu-4","vegas-1","vegas-b1","vegas-b2","vegas-b3","kaleido-1","kaleido-2"])
+          for p in images:
+              image=json.loads(p.read_bytes())
+              assert image["schema"]=="SLOPRO_RUNTIME_FLOOR_IMAGE_V1" and image["key"]==p.stem
+              assert image["current_on_site_verified"] is False and image["geometry_verified"] is True and image["image_content_updated_at"] is None
+              raw=base64.b64decode(image["image_base64"],validate=True)
+              assert raw[:3]==bytes([255,216,255]) and len(raw)<=500000 and hashlib.sha256(raw).hexdigest()==image["image_sha256"]
           html=Path("index.html").read_text()
           sw=Path("sw.js").read_text()
           css=Path("field-reference-rollout-v6.css").read_text()
@@ -55,7 +64,7 @@ jobs:
           assert 'field-carousel-v25.css' not in html
           assert "'./field-reference-rollout-v6.css'" in sw
           assert "'./app-sheet-priority-20261004.js'" in sw
-          assert "slopro-public-shell-v79-other-store-daily-floor" in sw
+          assert "slopro-public-shell-v80-floor-image-daily" in sw
           assert "calc(66.6667% - 4px)" in css
           assert "scroll-snap-type:x mandatory" in css
           assert "scroll-snap-stop:normal" in css
