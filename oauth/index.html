@@ -5,7 +5,8 @@
 <h2>Googleアカウントと連携する目的</h2>
 <p>本人の同意に基づいてYouTube Data APIを読み取り専用で利用し、指定した動画の参照情報や、APIが閲覧を許可するコメントを確認する構成を準備しています。会員限定情報の取得可否は、Google・YouTubeが提供する権限と実際のAPI応答によって決まります。</p>
 <h2>要求する権限</h2>
-<p>要求するスコープは <code>https://www.googleapis.com/auth/youtube.readonly</code> です。正規のGoogle認証画面で同意を行います。</p>
+<p>動画参照には <code>https://www.googleapis.com/auth/youtube.readonly</code>、コメント取得にはGoogleのAPI仕様で必要な <code>https://www.googleapis.com/auth/youtube.force-ssl</code> を要求します。正規のGoogle認証画面で、運営者本人が追加権限へ同意します。</p>
+<p class="note">コメント用権限には、Google側では動画・評価・コメント・字幕の編集と削除も含まれます。本アプリは取得と確認にのみ使用します。Google APIへの書込要求を実行しないよう、取得プログラムでは読み取りのGETだけを許可しています。例外のPOSTは、固定のGoogle認証更新用エンドポイントへの通信だけです。</p>
 <h2>利用と保存</h2>
 <p>利用者は運営者本人です。取得した情報と認証情報は非公開の保存先・実行環境で扱います。この案内ページでGoogle認証情報やYouTubeデータを収集することはありません。</p>
 <p>情報の種類、利用目的、保存と削除、連携解除については<a href="privacy.html">プライバシーポリシー</a>をご確認ください。</p>
