@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="referrer" content="no-referrer"><title>スロプロ自動取得</title><style>:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#101613;color:#eef4f0;font:16px/1.8 system-ui,-apple-system,"Segoe UI",sans-serif}main{max-width:820px;margin:auto;padding:36px 22px 60px}a{color:#92dfba;text-underline-offset:4px}nav{display:flex;gap:22px;flex-wrap:wrap;border-bottom:1px solid #35463c;padding-bottom:16px;font-size:14px}h1{font-size:clamp(25px,5vw,34px);line-height:1.4;margin-top:32px}h2{font-size:20px;margin:30px 0 10px}p,li{overflow-wrap:anywhere}.note{border-left:3px solid #8cd5b1;padding:12px 18px;background:#1a2920}.small{font-size:14px;color:#b7c6bd}footer{margin-top:36px;border-top:1px solid #35463c;padding-top:16px;font-size:14px}code{overflow-wrap:anywhere;font-size:14px}</style></head><body><main><nav aria-label="ページ案内"><a href="./">スロプロ自動取得</a><a href="privacy.html">プライバシーポリシー</a></nav><h1>スロプロ自動取得</h1>
+<p>スロプロ復帰OSの個人運用を補助する、本人専用の情報取得アプリです。機種の参照情報を確認し、許可された範囲の情報を非公開で整理するために使用します。</p>
+<p class="note">現在はGoogleとの初回連携・取得可否を検証する段階です。認証設定が完了したことと、会員向けの情報をAPIから取得できることは別々に確認します。</p>
+<h2>Googleアカウントと連携する目的</h2>
+<p>本人の同意に基づいてYouTube Data APIを読み取り専用で利用し、指定した動画の参照情報や、APIが閲覧を許可するコメントを確認する構成を準備しています。会員限定情報の取得可否は、Google・YouTubeが提供する権限と実際のAPI応答によって決まります。</p>
+<h2>要求する権限</h2>
+<p>要求するスコープは <code>https://www.googleapis.com/auth/youtube.readonly</code> です。正規のGoogle認証画面で同意を行います。</p>
+<h2>利用と保存</h2>
+<p>利用者は運営者本人です。取得した情報と認証情報は非公開の保存先・実行環境で扱います。この案内ページでGoogle認証情報やYouTubeデータを収集することはありません。</p>
+<p>情報の種類、利用目的、保存と削除、連携解除については<a href="privacy.html">プライバシーポリシー</a>をご確認ください。</p>
+<p class="small">このページはGoogle OAuthのアプリ説明用です。スロプロ自動取得はGoogle・YouTubeによる公式アプリではありません。更新日：2026年10月15日</p><footer>運営者：<a href="https://github.com/yousya716-pro" rel="noopener noreferrer">yousya716-pro</a><br>お問い合わせは、Google認証画面に表示されるユーザーサポートメールへお願いします。</footer></main></body></html>
