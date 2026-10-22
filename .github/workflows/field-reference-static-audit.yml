@@ -64,7 +64,7 @@ jobs:
           assert 'field-carousel-v25.css' not in html
           assert "'./field-reference-rollout-v6.css'" in sw
           assert "'./app-sheet-priority-20261004.js'" in sw
-          assert "slopro-public-shell-v89-sap-map-reference-colors" in sw
+          assert "slopro-public-shell-v90-sap-map-mirror" in sw
           assert "calc(66.6667% - 4px)" in css
           assert "scroll-snap-type:x mandatory" in css
           assert "scroll-snap-stop:normal" in css
