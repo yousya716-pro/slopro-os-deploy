@@ -64,7 +64,7 @@ jobs:
           assert 'field-carousel-v25.css' not in html
           assert "'./field-reference-rollout-v6.css'" in sw
           assert "'./app-sheet-priority-20261004.js'" in sw
-          assert "slopro-public-shell-v98-sap-followup-rate" in sw
+          assert "slopro-public-shell-v99-sap-analysis-forecast" in sw
           assert 'sap-kitano-live-20261023.js' in html and 'sap-kitano-live-20261023.js' in sw and Path('sap-kitano-live-20261023.js').is_file()
           assert "calc(66.6667% - 4px)" in css
           assert "scroll-snap-type:x mandatory" in css
