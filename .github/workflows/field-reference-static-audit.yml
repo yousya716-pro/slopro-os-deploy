@@ -102,3 +102,28 @@ jobs:
           assert "fetch(" not in manual and "localStorage.setItem" not in manual
           print("FIELD_REFERENCE_STATIC_AUDIT_OK")
           PY
+
+      - name: Verify published manual calculator bytes
+        run: |
+          python3 - <<'PY'
+          import hashlib,json,pathlib,time,urllib.request
+          names=['sap-manual-20261101.js','sap-manual-20261101.css','index.html','sw.js']
+          expected={name:hashlib.sha256(pathlib.Path(name).read_bytes()).hexdigest() for name in names}
+          verified={}
+          deadline=time.monotonic()+150
+          while time.monotonic()<deadline:
+              for name in names:
+                  if name in verified:continue
+                  try:
+                      url='https://yousya716-pro.github.io/slopro-os-deploy/'+name+'?manual_release=20261101'
+                      with urllib.request.urlopen(url,timeout=12) as response:
+                          body=response.read(500001)
+                          if response.status==200 and len(body)<=500000 and hashlib.sha256(body).hexdigest()==expected[name]:
+                              verified[name]={'name':name,'http_status':200,'sha256_match':True}
+                  except Exception:pass
+              if len(verified)==len(names):break
+              time.sleep(3)
+          receipt={'schema':'SAP_MANUAL_STATIC_DELIVERY_V1','verified':len(verified)==len(names),'assets':[verified.get(name,{'name':name,'sha256_match':False}) for name in names]}
+          print(json.dumps(receipt,sort_keys=True))
+          if not receipt['verified']:raise SystemExit(2)
+          PY
