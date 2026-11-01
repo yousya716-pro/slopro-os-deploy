@@ -64,7 +64,7 @@ jobs:
           assert 'field-carousel-v25.css' not in html
           assert "'./field-reference-rollout-v6.css'" in sw
           assert "'./app-sheet-priority-20261004.js'" in sw
-          assert "slopro-public-shell-v104-fox-reviewed-names" in sw
+          assert "slopro-public-shell-v105-sap-manual" in sw
           assert 'sap-kitano-live-20261023.js' in html and 'sap-kitano-live-20261023.js' in sw and Path('sap-kitano-live-20261023.js').is_file()
           assert "calc(66.6667% - 4px)" in css
           assert "scroll-snap-type:x mandatory" in css
@@ -95,5 +95,10 @@ jobs:
           for asset in ["fox-quick-reference-20261003.css", "original-source-reference-received-fox-20261003.js", "carousel-source-diagnostic-20261002.js", "original-source-reference-20261002-dense.css"]:
               assert asset in html and asset in sw and Path(asset).is_file()
           assert "スルー" not in css, "decision/source text must not be hardcoded in presentation CSS"
+          for asset in ["sap-manual-20261101.js", "sap-manual-20261101.css"]:
+              assert asset in html and asset in sw and Path(asset).is_file()
+          manual=Path("sap-manual-20261101.js").read_text()
+          assert "REG_AND_COMBINED_COMPOSITE" in manual
+          assert "fetch(" not in manual and "localStorage.setItem" not in manual
           print("FIELD_REFERENCE_STATIC_AUDIT_OK")
           PY

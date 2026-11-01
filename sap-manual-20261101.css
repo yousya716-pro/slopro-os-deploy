@@ -1,0 +1,40 @@
+/* Manual calculator only; existing OS and SAP layouts keep their selectors. */
+.sap-manual-entry{margin-top:10px;min-height:54px}
+.sap-manual-toolbar{display:flex;justify-content:flex-end;margin:6px 0 10px}
+.sap-manual-toolbar button{font:inherit;color:#bfe9ff;background:#143348;border:1px solid #37637b;border-radius:10px;padding:8px 12px;min-height:40px}
+.sap-manual-dialog{box-sizing:border-box;width:calc(100vw - 24px);max-width:520px;max-height:90vh;max-height:calc(100dvh - 24px);margin:auto;padding:18px;color:#edf4ff;background:#101c2d;border:1px solid #48617a;border-radius:18px;overflow-y:auto;overscroll-behavior:contain;box-shadow:0 20px 70px #0009;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.sap-manual-dialog::backdrop{background:#030812b8}
+.sap-manual-dialog[data-fallback]{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);margin:0;z-index:10000;box-shadow:0 0 0 100vmax #030812b8}
+.sap-manual-heading{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.sap-manual-heading h2{font-size:19px;margin:0;line-height:1.4}
+.sap-manual-heading button{flex:0 0 40px;height:40px;border:1px solid #4c6078;border-radius:10px;background:#1c2d43;color:#f2f6ff;font-size:26px}
+.sap-manual-intro{font-size:13px;color:#c4d3e4;margin:8px 0 16px}
+.sap-manual-form label{display:grid;gap:6px;font-size:14px;font-weight:650;margin:0 0 12px;min-width:0}
+.sap-manual-form input,.sap-manual-form select{box-sizing:border-box;width:100%;min-width:0;min-height:46px;padding:10px 12px;border:1px solid #526883;border-radius:10px;background:#091321;color:#fff;font-size:17px;font-family:inherit;font-variant-numeric:tabular-nums}
+.sap-manual-form input:focus,.sap-manual-form select:focus{outline:2px solid #64c5fc;outline-offset:2px}
+.sap-manual-form [aria-invalid=true]{border-color:#ff9f97}
+.sap-manual-counts{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+.sap-manual-help{font-size:12px;line-height:1.55;color:#bdccdd;margin:6px 0 0}
+.sap-manual-form #sap-manual-combined-help{margin:-6px 0 12px}
+.sap-manual-exact{padding:8px 0 12px;color:#c7d8ea;font-size:13px}
+.sap-manual-exact summary{cursor:pointer;padding:5px 0;min-height:26px}
+.sap-manual-exact label{margin-top:10px}
+.sap-manual-submit{width:100%;min-height:46px;padding:10px 14px;border:1px solid #5ac4ff;border-radius:11px;background:#1675ab;color:#fff;font:700 16px system-ui;cursor:pointer}
+.sap-manual-error{padding:10px;border:1px solid #dc8980;border-radius:10px;background:#382124;color:#ffd3cd;font-size:13px;line-height:1.5}
+.sap-manual-result{margin-top:14px;padding:14px;border:1px solid #5d7188;border-radius:13px;background:#1a2b40}
+.sap-manual-result[data-tier=top]{background:#103d39;border-color:#4ee5be}
+.sap-manual-result[data-tier=good]{background:#143c55;border-color:#65c7ff}
+.sap-manual-result[data-tier=watch]{background:#443615;border-color:#f0c76b}
+.sap-manual-result[data-tier=small]{background:#302e3b;border-color:#9e96b3}
+.sap-manual-rate{display:flex;align-items:flex-start;flex-direction:column;gap:2px}
+.sap-manual-rate span{font-size:12px;color:#d1dfec}
+.sap-manual-rate strong{font-size:39px;line-height:1.2;font-variant-numeric:tabular-nums;color:#f5fffd}
+.sap-manual-judgment{display:block;font-size:15px;margin-top:5px}
+.sap-manual-badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.sap-manual-badges span{border:1px solid #ffffff50;border-radius:7px;padding:4px 7px;font-size:12px;font-weight:650}
+.sap-manual-games{margin:10px 0 0;font-size:14px;font-weight:650}
+.sap-manual-footnote{margin:14px 0 0;font-size:11px;line-height:1.65;color:#b4c5d9}
+.sap-manual-dialog [hidden]{display:none!important}
+@media(max-width:380px){.sap-manual-dialog{padding:14px}.sap-manual-heading h2{font-size:17px}.sap-manual-counts{gap:9px}}
+
+.sap-manual-dialog *{box-sizing:border-box}
